@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Built Zuperb!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .home-button {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            max-width: 200px;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Hello Zuperb World!</h1>
+        <p>Here’s how the first version of Zuperb came together:</p>
+        <ol>
+            <li><strong>Started a Home:</strong> Created a repository on <a href="https://github.com/jithusunny/zuperb" target="_blank">GitHub</a> for project files.</li>
+            <li><strong>Got Guidance:</strong> Used ChatGPT to help with steps and troubleshooting.</li>
+            <li><strong>Set Up a Server:</strong> Launched an Ubuntu instance on AWS and connected via SSH.</li>
+            <li><strong>Prepared the Server:</strong> Installed Nginx and Git to host the site.</li>
+            <li><strong>Deployed Zuperb:</strong> Moved files to the server and configured Nginx.</li>
+            <li><strong>Secured It:</strong> Added HTTPS with Certbot for a secure connection.</li>
+            <li><strong>Connected the Domain:</strong> Updated DNS records on Cloudflare to point to the server.</li>
+            <li><strong>Verified:</strong> Tested the site at <a href="https://zuperb.in" target="_blank">https://zuperb.in</a>. Success!</li>
+        </ol>
+        <a href="https://zuperb.in" class="home-button">Back to Home</a>
+    </div>
+</body>
+</html>
