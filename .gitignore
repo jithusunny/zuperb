@@ -1,20 +1,17 @@
-# Python-specific ignores
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
 
 # Virtual environment
 venv/
 
-# Environment files
+# SQLite database files
+*.db
+*.sqlite3
+
+# Environment variables file
 .env
 
-# System files
-.DS_Store
-
-# Logs and temporary files
-*.log
-*.tmp
-
-hits.txt
-
+# Nginx logs (if applicable)
+logs/

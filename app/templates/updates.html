@@ -7,15 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            line-height: 1.6;
-            color: #333;
+            margin: 20px;
         }
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
             background: white;
             border-radius: 10px;
@@ -23,25 +19,14 @@
         }
         h1 {
             text-align: center;
-            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .update {
             margin-bottom: 20px;
         }
         .update-date {
             font-weight: bold;
-            margin-top: 20px;
-        }
-        ol {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+            margin-bottom: 5px;
         }
         .back-home {
             text-align: center;
@@ -63,8 +48,10 @@
         <h1>System Updates</h1>
         <div class="updates">
             {% for update in updates %}
-                <div class="update-date">{{ update.date }}</div>
-                <div>{{ update.content | safe }}</div>
+                <div class="update">
+                    <div class="update-date">{{ update.date }}</div>
+                    <div class="update-content">{{ update.content | safe }}</div>
+                </div>
             {% endfor %}
         </div>
         <div class="back-home">
