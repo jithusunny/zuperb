@@ -52,8 +52,8 @@ def home(request: Request, db=Depends(get_db)):
         "home.html",
         {
             "request": request,
-            "quote": "Whatever happens to you has been waiting to happen since the beginning of time",
-            "author": "Marcus Aurelius",
+            "quote": "We suffer more often in imagination than in reality.",
+            "author": "Seneca",
             "hits": hits,
         },
     )
