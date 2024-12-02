@@ -5,7 +5,7 @@ CHANGES = [
         <ol>
             <li><strong>Static website -> Dynamic App:</strong> Now powered by FastAPI.</li>
             <li><strong>Added Visit Counter:</strong> hit count stored in SQLite to track homepage visits.</li>
-            <li><strong>Kept the App Running:<strong> Configured a systemd service to ensure the app stays up and restarts automatically if needed</li>
+            <li><strong>Kept the App Running:</strong> Configured a systemd service to ensure the app stays up and restarts automatically if needed</li>
             <li><strong>Another short video!:</strong> Added a video: <a href="https://youtu.be/v1iElqtqy0Q" target="_blank">Suffering is mostly optional!</a></li>
         </ol>
         """
