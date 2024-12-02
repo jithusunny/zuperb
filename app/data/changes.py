@@ -3,8 +3,9 @@ CHANGES = [
         "date": "2024-12-02",
         "content": """
         <ol>
-            <li><strong>Added Hits:</strong> Implemented a dynamic hit counter to track visits to the homepage.</li>
-            <li><strong>Streamlined Changes:</strong> Consolidated all updates into a single file for easy management.</li>
+            <li><strong>Static website -> Dynamic App:</strong> Now powered by FastAPI.</li>
+            <li><strong>Added Visit Counter:</strong> hit count stored in SQLite to track homepage visits.</li>
+            <li><strong>Updated Quote:</strong> Added a new quote</li>
         </ol>
         """
     },
