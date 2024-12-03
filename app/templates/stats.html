@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 90%;
+            width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-home a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .back-home a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.8rem;
+            }
+            .pagination a {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zuperb Visitors</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Visitor</th>
+                    <th>When</th>
+                    <th>Place</th>
+                    <th>Gadget</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in log_data %}
+                <tr>
+                    <td>{{ log.funny_name }}</td>
+                    <td>{{ log.when }}</td>
+                    <td>{{ log.page_visited }}</td>
+                    <td>{{ log.device }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% if previous_page %}
+            <a href="?page={{ previous_page }}">Previous</a>
+            {% endif %}
+            {% if next_page %}
+            <a href="?page={{ next_page }}">Next</a>
+            {% endif %}
+        </div>
+        <div class="back-home">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
