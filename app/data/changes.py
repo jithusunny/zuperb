@@ -4,7 +4,7 @@ CHANGES = [
         "content": """
         <ol>
             <li><strong>Added Stats Page:</strong> Introduced a page to view visit details.</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/LtJnpiWbaMY" target="_blank">Universe is a being!</a></li>
+            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/dsiSn3PAoFs" target="_blank">Universe is a being!</a></li>
         </ol>
         """
     },
