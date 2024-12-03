@@ -1,0 +1,129 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo and Title Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Main Content Section for Quote */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.quote-container {
+    max-width: 80%; /* Restrict to 80% of the screen width */
+    padding: 30px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.quote-author {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+/* Visits Counter */
+.visits {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+/* Footer Links */
+.footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #007bff;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 1.6rem;
+    }
+
+    .quote-author {
+        font-size: 1.1rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        height: 30px;
+        width: 30px;
+    }
+}

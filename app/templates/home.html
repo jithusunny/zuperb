@@ -4,76 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zuperb</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #f9f9f9;
-            position: relative;
-        }
-        .quote-container {
-            text-align: center;
-            padding: 20px;
-            margin: 20px;
-            max-width: 600px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .quote-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .quote-author {
-            font-size: 1rem;
-            color: #555;
-        }
-        .visits {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: gray;
-            font-size: 0.9rem;
-        }
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            color: #007bff;
-            font-size: 0.9rem;
-            display: flex;
-            gap: 20px;
-        }
-        .footer a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
 </head>
 <body>
-    <!-- Visits Counter -->
-    <div class="visits">Visits: {{ hits }}</div>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo"> <!-- Logo -->
+            <div class="title">Zuperb</div>
+        </div>
+    </div>
 
-    <!-- Quote Section -->
-    <div class="quote-container">
-        <div class="quote-text">"{{ quote }}"</div>
-        <div class="quote-author">- {{ author }}</div>
+    <!-- Main Content Section for Quote -->
+    <div class="main-content">
+        <div class="quote-container">
+            <div class="quote-text">"We suffer more often in imagination than in reality."</div>
+            <div class="quote-author">- Seneca</div>
+        </div>
     </div>
 
     <!-- Footer Links -->
     <div class="footer">
-        <a href="/updates">System Updates</a>
-        <a href="/stats">Visitor Stats</a>
+        <a href="/updates">What's New?</a>
+        <a href="/stats">Who’s Visiting?</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,69 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Container for Updates Page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* Update Styling */
+.update {
+    margin-bottom: 20px;
+}
+
+.update-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.update-content {
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Back to Home Styling */
+.back-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-home a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-home a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

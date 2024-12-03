@@ -3,49 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Updates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .update {
-            margin-bottom: 20px;
-        }
-        .update-date {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .back-home {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .back-home a {
-            color: #007bff;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-        .back-home a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Zuperb News</title>
+    <link rel="stylesheet" href="/static/css/updates.css">
+    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
 </head>
 <body>
     <div class="container">
-        <h1>System Updates</h1>
+        <h1>Zuperb News</h1>
         <div class="updates">
             {% for update in updates %}
                 <div class="update">
