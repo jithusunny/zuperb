@@ -38,8 +38,8 @@ async def home(request: Request, db=Depends(get_db)):
         "home.html",
         {
             "request": request,
-            "quote": "We suffer more often in imagination than in reality.",
-            "author": "Seneca",
+            "quote": "A man sees in the world what he carries in his heart.",
+            "author": "Von Goethe",
         },
     )
 
