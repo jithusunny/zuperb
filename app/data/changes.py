@@ -3,7 +3,8 @@ CHANGES = [
         "date": "2024-12-03",
         "content": """
         <ol>
-            <li><strong>Added Stats Page:</strong> Introduced a page to view visit details.</li>
+            <li><strong>Added Stats Page:</strong> Introduced a page to view visit details. Removed the simple hits count.</li>
+            <li><strong>Added Logo, favicon:</strong> Also made the styling better</li>
             <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/dsiSn3PAoFs" target="_blank">Universe is a being!</a></li>
         </ol>
         """
