@@ -59,6 +59,7 @@ async def updates(request: Request, db=Depends(get_db)):
 
 @app.get("/stats", response_class=HTMLResponse)
 def stats(request: Request, db=Depends(get_db), page: int = 1):
+    log_visitor(request, db, page="Visitors")
     per_page = 10
     logs, next_page, previous_page = paginate(
         db.query(VisitLog).order_by(VisitLog.timestamp.desc()), page, per_page
