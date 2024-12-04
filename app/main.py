@@ -1,4 +1,6 @@
 import arrow
+import random
+from app.data.quotes import QUOTES
 from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -34,12 +36,13 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, db=Depends(get_db)):
     log_visitor(request, db, page="Home")
+    random_quote = random.choice(QUOTES)
     return templates.TemplateResponse(
         "home.html",
         {
             "request": request,
-            "quote": "A man sees in the world what he carries in his heart.",
-            "author": "Von Goethe",
+            "quote": random_quote["quote"],
+            "author": random_quote["author"],
         },
     )
 
