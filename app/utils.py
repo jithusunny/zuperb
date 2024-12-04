@@ -2,8 +2,19 @@ import hashlib
 from user_agents import parse
 from app.models import VisitLog
 
-ADJECTIVES = ["Witty", "Cheeky", "Bouncy", "Sassy", "Jolly", "Nifty"]
-NOUNS = ["Penguin", "Unicorn", "Sloth", "Llama", "Otter", "Taco"]
+ADJECTIVES = [
+    "Bright", "Gentle", "Brave", "Kind", "Bold", "Calm", "Happy", "Lively", 
+    "Jolly", "Graceful", "Radiant", "Cheerful", "Charming", "Elegant", 
+    "Joyful", "Peaceful", "Strong", "Sweet", "Magical", "Vibrant", "Loyal", 
+    "Splendid", "Brilliant", "Thoughtful", "Witty", "Fabulous", "Daring"
+]
+
+NOUNS = [
+    "Dove", "Swan", "Eagle", "Hawk", "Raven", "Hummingbird", "Peacock", 
+    "Butterfly", "Phoenix", "Lion", "Tiger", "Panther", "Leopard", "Cheetah", 
+    "Otter", "Panda", "Deer", "Rabbit", "Stag", "Falcon", "Heron", "Crane", 
+    "Kite", "Bluebird", "Parrot", "Sparrow", "Lark", "Finch", "Robin", "Jay"
+]
 
 def log_visitor(request, db, page):
     ip = request.headers.get("X-Forwarded-For", request.client.host)
