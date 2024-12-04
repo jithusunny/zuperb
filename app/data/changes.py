@@ -1,5 +1,15 @@
 CHANGES = [
     {
+        "date": "2024-12-04",
+        "content": """
+        <ol>
+            <li><strong>New quote on every page load:</strong> Added a quotes collection, now showing a new quote on Home page on each load.</li>
+            <li><strong>Added logging visits on Stats area:</strong> Also added more fun name possibilities</li>
+            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/2e9AAEdE63Y" target="_blank">A cat can be your teacher!</a></li>
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-03",
         "content": """
         <ol>
