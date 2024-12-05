@@ -3,12 +3,12 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrollbars */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: #f9f9f9;
     box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header Section */
@@ -24,7 +24,6 @@ body {
     z-index: 1000;
 }
 
-/* Logo and Title Container */
 .logo-container {
     display: flex;
     align-items: center;
@@ -44,50 +43,74 @@ body {
     color: #333;
 }
 
-/* Main Content Section for Quote */
+/* Main Content Section */
 .main-content {
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: flex-start;
     padding: 20px;
+    margin-top: 60px; /* Make space below header */
+    width: 100%; /* Ensure full width */
 }
 
-.quote-container {
-    max-width: 80%; /* Restrict to 80% of the screen width */
-    padding: 30px;
-    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Individual Cards */
+.card {
+    background-color: #fff;
+    padding: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ddd; /* Subtle border */
+    transition: transform 0.3s ease-in-out;
+    background-color: #f9f9f9;
+    margin: 10px;
 }
 
-.quote-text {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #4a4a4a;
+/* Text and Links within Card */
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
     margin-bottom: 20px;
-    line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.quote-author {
-    font-size: 1.3rem;
-    font-style: italic;
-    color: #7f8c8d;
+.card-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
-/* Visits Counter */
-.visits {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: gray;
-    font-size: 0.9rem;
+.card-link:hover {
+    text-decoration: underline;
 }
 
-/* Footer Links */
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Footer Section */
 .footer {
     width: 100%;
     padding: 10px 0;
@@ -96,8 +119,14 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
+/* Footer Links */
 .footer a {
     text-decoration: none;
     font-size: 1rem;
@@ -110,20 +139,35 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .quote-text {
-        font-size: 1.6rem;
+    .card-container {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+        padding: 10px;
     }
 
-    .quote-author {
-        font-size: 1.1rem;
+    .card {
+        width: 90%;
+        margin: 10px auto;
     }
 
     .title {
         font-size: 1.2rem;
     }
+}
 
-    .logo {
-        height: 30px;
-        width: 30px;
-    }
+/* Sticky Footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    background-color: white;
 }

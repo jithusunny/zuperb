@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="/static/css/recipes.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo"> <!-- Logo -->
+            <div class="title">Zuperb</div>
+        </div>
+    </div>
+
+    <!-- Recipe Content -->
+    <div class="recipe-container">
+        <h2>{{ recipes[0].name }}</h2>
+        <h3>Serves: {{ recipes[0].serves }}</h3>
+
+        <h4>Ingredients:</h4>
+        <ul>
+            {% for ingredient in recipes[0].ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <h4>Instructions:</h4>
+        <ol>
+            {% for step in recipes[0].instructions %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <!-- Back to Home Link -->
+    <div class="back-home">
+        <a href="/">Back to Home</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <!-- Just remove this section from here to keep it at the bottom correctly -->
+    </div>
+</body>
+</html>

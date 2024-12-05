@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2024-12-05",
+        "content": """
+        <ol>
+            <li><strong>Added Recipes area:</strong> And a recipe in it for omelette with extra veggies that I cooked today</li>
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-04",
         "content": """
         <ol>

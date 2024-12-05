@@ -16,23 +16,26 @@
     <!-- Header Section -->
     <div class="header">
         <div class="logo-container">
-            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo"> <!-- Logo -->
+            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo">
             <div class="title">Zuperb</div>
         </div>
     </div>
 
-    <!-- Main Content Section for Quote -->
+    <!-- Main Content Section for Cards -->
     <div class="main-content">
-        <div class="quote-container">
-            <div class="quote-text">{{ quote }}</div>
-            <div class="quote-author">- {{ author }}</div>
+        <div class="card-container">
+            <div class="card">
+                <h2>Recipes</h2>
+                <p>Click to explore delicious recipes</p>
+                <a href="/recipes" class="card-link">Go to Recipes</a>
+            </div>
         </div>
     </div>
 
     <!-- Footer Links -->
     <div class="footer">
         <a href="/updates">What's New?</a>
-        <a href="/stats">Who’s Visiting?</a>
+        <a href="/stats">Who's Visiting?</a>
     </div>
 </body>
 </html>

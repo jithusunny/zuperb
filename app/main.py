@@ -9,6 +9,8 @@ from sqlalchemy.orm import sessionmaker
 from app.models import Base, VisitLog
 from app.utils import log_visitor, generate_funny_name, paginate
 from app.data.changes import CHANGES
+from app.data.recipes import RECIPES
+
 from sqlalchemy import create_engine
 
 # Initialize FastAPI, Jinja2
@@ -82,3 +84,8 @@ def stats(request: Request, db=Depends(get_db), page: int = 1):
             "previous_page": previous_page,
         },
     )
+
+@app.get("/recipes", response_class=HTMLResponse)
+async def recipes(request: Request, db=Depends(get_db)):
+    log_visitor(request, db, page="Recipes")
+    return templates.TemplateResponse("recipes.html", {"request": request, "recipes": RECIPES})
