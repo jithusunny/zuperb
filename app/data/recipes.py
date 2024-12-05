@@ -15,7 +15,7 @@ RECIPES = [
             "2 tablespoons oil"
         ],
         "instructions": [
-            "Cut all veggies into tiny pieces"
+            "Cut all veggies into tiny pieces",
             "Heat oil in a pan (for 2-3 minutes)",
             "Add veggies",
             "Add turmeric, chilli powders",
