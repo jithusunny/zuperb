@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuperb</title>
-    <link rel="stylesheet" href="/static/css/home.css">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="/static/css/quotes.css">
     <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
@@ -21,28 +21,17 @@
         </div>
     </div>
 
-    <!-- Main Content Section for Cards -->
+    <!-- Main Content Section for Random Quote -->
     <div class="main-content">
-        <div class="card-container">
-            <!-- Recipes Card -->
-            <div class="card">
-                <h2>Recipes</h2>
-                <p>Cook something good</p>
-                <a href="/recipes" class="card-link">Go to Recipes</a>
-            </div>
-            <!-- Quotes Card -->
-            <div class="card">
-                <h2>Quotes</h2>
-                <p>Set the vibe for today</p>
-                <a href="/quotes" class="card-link">Go to Quotes</a>
-            </div>
+        <div class="quote-container">
+            <div class="quote-text">{{ quote["quote"] }}</div>
+            <div class="quote-author">- {{ quote["author"] }}</div>
         </div>
     </div>
 
     <!-- Footer Links -->
     <div class="footer">
-        <a href="/updates">What's New?</a>
-        <a href="/stats">Who's Visiting?</a>
+        <a href="/">Back to Home</a>
     </div>
 </body>
 </html>

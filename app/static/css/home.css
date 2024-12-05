@@ -52,17 +52,18 @@ body {
     padding: 20px;
     margin-top: 60px; /* Make space below header */
     width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Ensure padding does not cause overflow */
 }
 
 /* Card Container */
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow the cards to wrap into multiple rows */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Space between the cards */
     width: 100%;
-    box-sizing: border-box;
+    padding: 0 20px; /* Symmetric padding for left and right */
+    box-sizing: border-box; /* Prevent overflow due to padding */
 }
 
 /* Individual Cards */
@@ -140,13 +141,13 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .card-container {
-        grid-template-columns: 1fr; /* Stack cards on mobile */
-        padding: 10px;
+        justify-content: center;
+        /* Ensuring only one card per row on mobile */
     }
 
     .card {
-        width: 90%;
-        margin: 10px auto;
+        width: 90%; /* Use 90% width for the cards */
+        margin: 10px auto; /* Center the cards with margin on left and right */
     }
 
     .title {

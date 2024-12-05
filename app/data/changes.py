@@ -3,7 +3,9 @@ CHANGES = [
         "date": "2024-12-05",
         "content": """
         <ol>
-            <li><strong>Added Recipes area:</strong> And a recipe in it for omelette with extra veggies that I cooked today</li>
+            <li><strong>Added Recipes area:</strong> And a recipe in it for omelette with extra veggies that I cooked today.</li>
+            <li><strong>Added Quotes area:</strong> that shows a different inspiring or insightful quote on every load.</li>
+            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/DjeJehVzdWw" target="_blank">What is in the now?!</a></li>
         </ol>
         """
     },

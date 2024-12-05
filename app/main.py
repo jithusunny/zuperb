@@ -89,3 +89,9 @@ def stats(request: Request, db=Depends(get_db), page: int = 1):
 async def recipes(request: Request, db=Depends(get_db)):
     log_visitor(request, db, page="Recipes")
     return templates.TemplateResponse("recipes.html", {"request": request, "recipes": RECIPES})
+
+@app.get("/quotes", response_class=HTMLResponse)
+async def quotes(request: Request, db=Depends(get_db)):
+    log_visitor(request, db, page="Quotes")
+    random_quote = random.choice(QUOTES)
+    return templates.TemplateResponse("quotes.html", {"request": request, "quote": random_quote})
