@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuperb News</title>
-    <link rel="stylesheet" href="/static/css/updates.css">
-    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
-</head>
-<body>
-    <div class="container">
-        <h1>Zuperb News</h1>
-        <div class="updates">
-            {% for update in updates %}
-                <div class="update">
-                    <div class="update-date">{{ update.date }}</div>
-                    <div class="update-content">{{ update.content | safe }}</div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="back-home">
-            <a href="/">Back to Home</a>
-        </div>
+{% extends "base.html" %}
+
+{% block title %}What's New? - Zuperb{% endblock %}
+{% block header_title %}What's New?{% endblock %}
+
+{% block content %}
+<div class="updates-container">
+    {% for update in updates %}
+    <div class="update-card">
+        <h3>{{ update.date }}</h3>
+        <p>{{ update.content | safe }}</p>
     </div>
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}

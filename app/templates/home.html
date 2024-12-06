@@ -1,48 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuperb</title>
-    <link rel="stylesheet" href="/static/css/home.css">
-    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
-</head>
-<body>
-    <!-- Header Section -->
-    <div class="header">
-        <div class="logo-container">
-            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo">
-            <div class="title">Zuperb!</div>
-        </div>
-    </div>
+{% extends "base.html" %}
 
-    <!-- Main Content Section for Cards -->
-    <div class="main-content">
-        <div class="card-container">
-            <!-- Recipes Card -->
-            <div class="card">
-                <h2>Recipes</h2>
-                <p>Cook something good</p>
-                <a href="/recipes" class="card-link">Go to Recipes</a>
-            </div>
-            <!-- Quotes Card -->
-            <div class="card">
-                <h2>Quotes</h2>
-                <p>Set the vibe for today</p>
-                <a href="/quotes" class="card-link">Go to Quotes</a>
-            </div>
-        </div>
-    </div>
+{% block title %}Home - Zuperb{% endblock %}
+{% block header_title %}Zuperb{% endblock %}
 
-    <!-- Footer Links -->
-    <div class="footer">
-        <a href="/updates">What's New?</a>
-        <a href="/stats">Who's Visiting?</a>
+{% block content %}
+<div class="cards">
+    <div class="card">
+        <h2>Recipes</h2>
+        <p>Explore delicious recipes</p>
+        <a href="/recipes">View Recipes</a>
     </div>
-</body>
-</html>
+    <div class="card">
+        <h2>Quotes</h2>
+        <p>Find daily inspiration</p>
+        <a href="/quotes">View Quotes</a>
+    </div>
+</div>
+{% endblock %}

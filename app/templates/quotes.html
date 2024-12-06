@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes</title>
-    <link rel="stylesheet" href="/static/css/quotes.css">
-    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
-</head>
-<body>
-    <!-- Header Section -->
-    <div class="header">
-        <div class="logo-container">
-            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo">
-            <div class="title">Zuperb</div>
-        </div>
-    </div>
+{% extends "base.html" %}
 
-    <!-- Main Content Section for Random Quote -->
-    <div class="main-content">
-        <div class="quote-container">
-            <div class="quote-text">{{ quote["quote"] }}</div>
-            <div class="quote-author">- {{ quote["author"] }}</div>
-        </div>
-    </div>
+{% block title %}Quotes - Zuperb{% endblock %}
+{% block header_title %}Quotes{% endblock %}
 
-    <!-- Footer Links -->
-    <div class="footer">
-        <a href="/">Back to Home</a>
-    </div>
-</body>
-</html>
+{% block content %}
+<div class="quote-card">
+    <blockquote>
+        <p>"{{ quote['quote'] }}"</p>
+        <footer>- {{ quote['author'] }}</footer>
+    </blockquote>
+</div>
+{% endblock %}

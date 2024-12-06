@@ -1,54 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes</title>
-    <link rel="stylesheet" href="/static/css/recipes.css">
-    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
-    <link rel="icon" href="/static/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
-</head>
-<body>
-    <!-- Header Section -->
-    <div class="header">
-        <div class="logo-container">
-            <img src="/static/images/logo.png" alt="Zuperb Logo" class="logo"> <!-- Logo -->
-            <div class="title">Zuperb</div>
-        </div>
-    </div>
+{% extends "base.html" %}
 
-    <!-- Recipe Content -->
-    <div class="recipe-container">
-        <h2>{{ recipes[0].name }}</h2>
-        <h3>Serves: {{ recipes[0].serves }}</h3>
+{% block title %}Recipes - Zuperb{% endblock %}
+{% block header_title %}Recipes{% endblock %}
 
-        <h4>Ingredients:</h4>
-        <ul>
-            {% for ingredient in recipes[0].ingredients %}
-                <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul>
+{% block content %}
+<div class="centered-card">
+    <h2>{{ recipes[0].name }}</h2> <!-- Heading Centered -->
+    <h3>Serves: {{ recipes[0].serves }}</h3>
 
-        <h4>Instructions:</h4>
-        <ol>
-            {% for step in recipes[0].instructions %}
-                <li>{{ step }}</li>
-            {% endfor %}
-        </ol>
-    </div>
+    <h4>Ingredients:</h4>
+    <ul>
+        {% for ingredient in recipes[0].ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
 
-    <!-- Back to Home Link -->
-    <div class="back-home">
-        <a href="/">Back to Home</a>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <!-- Just remove this section from here to keep it at the bottom correctly -->
-    </div>
-</body>
-</html>
+    <h4>Instructions:</h4>
+    <ol>
+        {% for step in recipes[0].instructions %}
+        <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
