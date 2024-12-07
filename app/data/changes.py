@@ -1,4 +1,13 @@
 CHANGES = [
+        {
+        "date": "2024-12-07",
+        "content": """
+        <ol>
+            <li><strong>Added System status:</strong> with some basic info about vitals</li>
+            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/41se-yMuvQ0" target="_blank">One hour & one thousand years - same suchness</a></li>
+        </ol>
+        """
+    },
     {
         "date": "2024-12-06",
         "content": """
