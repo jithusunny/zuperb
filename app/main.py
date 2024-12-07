@@ -1,5 +1,9 @@
+import time
 import arrow
 import random
+import psutil
+from datetime import datetime
+
 from app.data.quotes import QUOTES
 from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
@@ -95,3 +99,31 @@ async def quotes(request: Request, db=Depends(get_db)):
     log_visitor(request, db, page="Quotes")
     random_quote = random.choice(QUOTES)
     return templates.TemplateResponse("quotes.html", {"request": request, "quote": random_quote})
+
+@app.get("/server-status", response_class=HTMLResponse)
+async def server_status(request: Request, db=Depends(get_db)):
+    boot_time = psutil.boot_time()
+    uptime_seconds = time.time() - boot_time
+    uptime_hours = int(uptime_seconds // 3600)
+
+    start_time_formatted = datetime.fromtimestamp(boot_time).strftime("%b %d, %I:%M %p")
+
+    cpu_usage = psutil.cpu_percent(interval=1)
+    memory = psutil.virtual_memory()
+    memory_used = int(memory.used / (1024**2))
+    memory_total = int(memory.total / (1024**2))
+    disk = psutil.disk_usage('/')
+    disk_total = disk.total / (1024**3)
+    disk_used = disk.used / (1024**3)
+
+    status = {
+        "uptime_hours": uptime_hours,
+        "start_time_formatted": start_time_formatted,
+        "cpu_usage": f"{cpu_usage:.1f}",
+        "memory_total": memory_total,
+        "memory_used": memory_used,
+        "disk_total": f"{disk_total:.1f}",
+        "disk_used": f"{disk_used:.1f}",
+    }
+
+    return templates.TemplateResponse("server_status.html", {"request": request, "status": status})

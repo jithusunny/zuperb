@@ -224,8 +224,7 @@ tr:nth-child(even) {
     background-color: #fff;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between; /* Ensure links are spaced at edges */
-    align-items: center; /* Vertically align links */
+    align-items: center; /* Vertically center items */
     padding: 10px 20px;
     font-size: 0.9rem;
     position: sticky;
@@ -233,7 +232,11 @@ tr:nth-child(even) {
     left: 0;
     right: 0;
     z-index: 1000;
-    white-space: nowrap; /* Prevent links from wrapping */
+    white-space: nowrap;
+}
+
+.footer-center {
+    margin: 0 auto; /* This pushes the center link to the middle */
 }
 
 .footer a {
@@ -257,3 +260,5 @@ tr:nth-child(even) {
         font-size: 0.85rem; /* Adjust link size for smaller screens */
     }
 }
+
+
