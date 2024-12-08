@@ -70,15 +70,22 @@ def stats(request: Request, db=Depends(get_db), page: int = 1):
     logs, next_page, previous_page = paginate(
         db.query(VisitLog).order_by(VisitLog.timestamp.desc()), page, per_page
     )
-    log_data = [
-        {
-            "funny_name": generate_funny_name(log.ip),
+
+    current_user_ip = request.headers.get("X-Forwarded-For", request.client.host)
+
+    log_data = []
+    for log in logs:
+        visitor_name = generate_funny_name(log.ip)
+        if log.ip == current_user_ip:
+            visitor_name = f"{visitor_name} (You)"
+        
+        log_data.append({
+            "funny_name": visitor_name,
             "when": arrow.get(log.timestamp).humanize(),
             "page_visited": log.page,
             "device": log.device_type,
-        }
-        for log in logs
-    ]
+        })
+
     return templates.TemplateResponse(
         "stats.html",
         {

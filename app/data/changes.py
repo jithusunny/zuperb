@@ -1,4 +1,13 @@
 CHANGES = [
+    {
+        "date": "2024-12-08",
+        "content": """
+        <ol>
+            <li><strong>Zuperb addresses you as you!:</strong> Show (You) in visits log</a></li>
+            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/Y8tC0BMwNyg" target="_blank">What actually is this?</a></li>
+        </ol>
+        """
+    },
         {
         "date": "2024-12-07",
         "content": """
