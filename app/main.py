@@ -134,3 +134,9 @@ async def server_status(request: Request, db=Depends(get_db)):
     }
 
     return templates.TemplateResponse("server_status.html", {"request": request, "status": status})
+
+
+@app.get("/about", response_class=HTMLResponse)
+def about(request: Request, db=Depends(get_db)):
+    log_visitor(request, db, page="About")
+    return templates.TemplateResponse("about.html", {"request": request})

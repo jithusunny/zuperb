@@ -3,8 +3,9 @@ CHANGES = [
         "date": "2024-12-08",
         "content": """
         <ol>
+            <li><strong>Added words about Zuperb!:</strong> an about page is now linked from footer</a></li>
             <li><strong>Zuperb addresses you as you!:</strong> Show (You) in visits log</a></li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/Y8tC0BMwNyg" target="_blank">What actually is this?</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/Y8tC0BMwNyg" target="_blank">What actually is this?</a></li>
         </ol>
         """
     },
@@ -13,7 +14,7 @@ CHANGES = [
         "content": """
         <ol>
             <li><strong>Added System status:</strong> with some basic info about vitals</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/41se-yMuvQ0" target="_blank">One hour & one thousand years - same suchness</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/41se-yMuvQ0" target="_blank">One hour & one thousand years - same suchness</a></li>
         </ol>
         """
     },
@@ -22,7 +23,7 @@ CHANGES = [
         "content": """
         <ol>
             <li><strong>Updated styles:</strong> cleaned things up a little bit</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/oUR7dQvj_JQ" target="_blank">This moment is not an ordinary one!</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/oUR7dQvj_JQ" target="_blank">This moment is not an ordinary one!</a></li>
         </ol>
         """
     },
@@ -33,7 +34,7 @@ CHANGES = [
             <li><strong>Added Recipes area:</strong> And a recipe in it for omelette with extra veggies that I cooked today.</li>
             <li><strong>Added Quotes area:</strong> that shows a different inspiring or insightful quote on every load.</li>
             <li><strong>Setup auto-deploy:</strong> via Github action. Code changes pushed will get deployed to server automatically.</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/DjeJehVzdWw" target="_blank">What is in the now?!</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/DjeJehVzdWw" target="_blank">What is in the now?!</a></li>
         </ol>
         """
     },
@@ -43,7 +44,7 @@ CHANGES = [
         <ol>
             <li><strong>New quote on every page load:</strong> Added a quotes collection, now showing a new quote on Home page on each load.</li>
             <li><strong>Added logging visits on Stats area:</strong> Also added more fun name possibilities</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/2e9AAEdE63Y" target="_blank">A cat can be your teacher!</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/2e9AAEdE63Y" target="_blank">A cat can be your teacher!</a></li>
         </ol>
         """
     },
@@ -53,7 +54,7 @@ CHANGES = [
         <ol>
             <li><strong>Added Stats Page:</strong> Introduced a page to view visit details. Removed the simple hits count.</li>
             <li><strong>Added Logo, favicon:</strong> Also made the styling better</li>
-            <li><strong>Video added!:</strong> Added a video: <a href="https://youtu.be/dsiSn3PAoFs" target="_blank">Universe is a being!</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/dsiSn3PAoFs" target="_blank">Universe is a being!</a></li>
         </ol>
         """
     },
@@ -64,7 +65,7 @@ CHANGES = [
             <li><strong>Static website -> Dynamic App:</strong> Now powered by FastAPI.</li>
             <li><strong>Added Visit Counter:</strong> hit count stored in SQLite to track homepage visits.</li>
             <li><strong>Kept the App Running:</strong> Configured a systemd service to ensure the app stays up and restarts automatically if needed</li>
-            <li><strong>Another short video!:</strong> Added a video: <a href="https://youtu.be/TXidh8FCSUk" target="_blank">Suffering is mostly optional!</a></li>
+            <li><strong>Another short video!:</strong> <a href="https://youtu.be/TXidh8FCSUk" target="_blank">Suffering is mostly optional!</a></li>
         </ol>
         """
     },
