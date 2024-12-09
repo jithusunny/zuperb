@@ -140,3 +140,8 @@ async def server_status(request: Request, db=Depends(get_db)):
 def about(request: Request, db=Depends(get_db)):
     log_visitor(request, db, page="About")
     return templates.TemplateResponse("about.html", {"request": request})
+
+@app.get("/history", response_class=HTMLResponse)
+async def history(request: Request, db=Depends(get_db)):
+    log_visitor(request, db, page="History")
+    return templates.TemplateResponse("history.html", {"request": request})

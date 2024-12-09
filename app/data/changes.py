@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-09",
+        "content": """
+        <ol>
+            <li><strong>Added a history page:</strong> how did we reach here?</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/rq3VxWv3L0k" target="_blank">When somebody is angry</a></li>
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-08",
         "content": """
         <ol>
@@ -9,7 +18,7 @@ CHANGES = [
         </ol>
         """
     },
-        {
+    {
         "date": "2024-12-07",
         "content": """
         <ol>
