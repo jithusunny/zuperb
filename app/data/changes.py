@@ -1,5 +1,15 @@
 CHANGES = [
     {
+        "date": "2024-12-10",
+        "content": """
+        <ol>
+            <li><strong>Upgraded DB:</strong> Switched to PostgreSQL, created user/db via psql, and set credentials in env variables.</a></li>
+            <li><strong>Added user avatar:</strong> with a generated name per IP</a></li>            
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/42DNWRclkd0" target="_blank">Magical Mornings</a></li>
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-09",
         "content": """
         <ol>
