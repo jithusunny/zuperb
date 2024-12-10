@@ -40,6 +40,26 @@ body {
     flex: 1;
 }
 
+/* User info in header */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.user-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
 /* Main content */
 .content {
     flex: 1;
@@ -52,11 +72,11 @@ body {
 /* Updates Page - Parent Container */
 .updates-container {
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center align cards horizontally */
-    gap: 20px; /* Add spacing between cards */
-    width: 100%; /* Full width for container */
-    padding: 20px; /* Add padding around the container */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+    width: 100%; 
+    padding: 20px; 
     box-sizing: border-box;
 }
 
@@ -66,18 +86,18 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px; /* Padding inside the card */
-    width: 90%; /* Cards take up most of the container's width */
-    max-width: 800px; /* Limit card width on larger screens */
-    text-align: left; /* Left align content inside the card */
+    padding: 30px; 
+    width: 90%; 
+    max-width: 800px;
+    text-align: left; 
 }
 
 /* Home Page Cards */
 .cards {
     display: flex;
-    gap: 30px; /* Add space between cards */
+    gap: 30px; 
     justify-content: center;
-    flex-wrap: wrap; /* Wrap cards to a new row on smaller screens */
+    flex-wrap: wrap; 
 }
 
 .card {
@@ -86,8 +106,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 30px; /* Padding inside the card */
-    width: 240px; /* Card width */
+    padding: 30px; 
+    width: 240px; 
     transition: transform 0.3s;
 }
 
@@ -101,103 +121,103 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px; /* Comfortable padding */
-    width: 80%; /* Width for desktop */
-    max-width: 800px; /* Limit width */
-    text-align: left; /* Align text to the left */
+    padding: 30px; 
+    width: 80%; 
+    max-width: 800px; 
+    text-align: left; 
 }
 
 .centered-card h2 {
-    text-align: center; /* Center-align the heading */
-    font-size: 2rem; /* Optional: Increase the font size for emphasis */
-    margin-bottom: 20px; /* Add spacing below the heading */
-    color: #333; /* Ensure consistent color */
+    text-align: center; 
+    font-size: 2rem; 
+    margin-bottom: 20px; 
+    color: #333; 
 }
 
 h2, h3, h4 {
-    margin-bottom: 20px; /* Add spacing below headings */
-    color: #333; /* Dark text for better readability */
+    margin-bottom: 20px; 
+    color: #333; 
 }
 
 ul, ol {
-    margin-left: 20px; /* Add indentation for lists */
-    margin-bottom: 20px; /* Add space below lists */
+    margin-left: 20px; 
+    margin-bottom: 20px; 
 }
 
 p {
-    margin-bottom: 15px; /* Add spacing below paragraphs */
+    margin-bottom: 15px; 
 }
 
 /* Jumbo Quote Card */
 .quote-card {
-    background-color: #fefefe; /* Subtle white tone */
-    border: 2px solid #007bff; /* Soft border for emphasis */
-    border-radius: 12px; /* Smooth rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 30px; /* Comfortable padding */
-    width: 70%; /* Card width for desktop */
-    max-width: 600px; /* Limit size for larger screens */
+    background-color: #fefefe; 
+    border: 2px solid #007bff; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 30px; 
+    width: 70%; 
+    max-width: 600px; 
     position: absolute;
-    top: 40%; /* Slightly above the center */
+    top: 40%; 
     left: 50%;
     transform: translate(-50%, -60%);
-    text-align: center; /* Center the text content */
-    font-size: 1.5rem; /* Reduced size for subtlety */
-    line-height: 1.8; /* Comfortable line spacing */
-    font-weight: normal; /* Softer font weight */
-    color: #333; /* Neutral text color for readability */
-    font-style: italic; /* Add elegance with italicized text */
+    text-align: center; 
+    font-size: 1.5rem; 
+    line-height: 1.8; 
+    font-weight: normal; 
+    color: #333; 
+    font-style: italic; 
 }
 
 .quote-card footer {
-    margin-top: 15px; /* Space above the author */
-    font-size: 1.2rem; /* Smaller size for author name */
-    font-weight: bold; /* Highlight the author */
-    color: #007bff; /* Blue for distinction */
+    margin-top: 15px; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    color: #007bff; 
 }
 
 /* Stats Table */
 table {
-    width: 95%; /* Expand to take most of the container's width */
-    max-width: 1200px; /* Limit width for large screens */
+    width: 95%; 
+    max-width: 1200px; 
     border-collapse: collapse;
-    margin: 20px auto; /* Center the table and add spacing */
+    margin: 20px auto; 
 }
 
 th, td {
-    padding: 16px; /* Increase padding for better readability */
-    border: 1px solid #ddd; /* Add borders for clarity */
-    text-align: left; /* Align text to the left */
+    padding: 16px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
 }
 
 th {
-    background-color: #f4f4f4; /* Distinctive background for header */
-    color: #555; /* Neutral color for header text */
-    font-size: 1.1rem; /* Slightly larger font for header */
+    background-color: #f4f4f4; 
+    color: #555; 
+    font-size: 1.1rem; 
     font-weight: bold;
 }
 
 td {
-    font-size: 1rem; /* Consistent and readable font size for table rows */
+    font-size: 1rem; 
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9; /* Subtle zebra striping for rows */
+    background-color: #f9f9f9; 
 }
 
 /* Pagination Buttons */
 .pagination {
     display: flex;
-    justify-content: space-between; /* Space Previous and Next to opposite corners */
-    margin-top: 15px; /* Add spacing between table and buttons */
-    width: 100%; /* Match table width */
-    max-width: 1200px; /* Align with table's max width */
-    margin-left: auto; /* Center pagination relative to table */
+    justify-content: space-between; 
+    margin-top: 15px; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin-left: auto; 
     margin-right: auto;
 }
 
 .pagination a {
-    padding: 10px 20px; /* Comfortable button padding */
+    padding: 10px 20px; 
     text-decoration: none;
     background-color: #007bff;
     color: white;
@@ -206,17 +226,17 @@ tr:nth-child(even) {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
-    min-width: 100px; /* Ensure buttons have consistent width */
+    min-width: 100px; 
     text-align: center;
 }
 
 .pagination a.hidden {
-    visibility: hidden; /* Hide the button but preserve its space */
+    visibility: hidden; 
 }
 
 .pagination a:hover {
     background-color: #0056b3;
-    transform: translateY(-2px); /* Subtle hover effect */
+    transform: translateY(-2px); 
 }
 
 /* Footer styling */
@@ -259,7 +279,6 @@ tr:nth-child(even) {
         font-size: 0.85rem;
     }
 }
-
 
 .about-container {
     width: 90%;

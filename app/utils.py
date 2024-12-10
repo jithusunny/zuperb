@@ -16,11 +16,17 @@ NOUNS = [
     "Kite", "Bluebird", "Parrot", "Sparrow", "Lark", "Finch", "Robin", "Jay"
 ]
 
-def log_visitor(request, db, page):
+def log_visitor(request, db, page, ip_to_name_map):
     ip = request.headers.get("X-Forwarded-For", request.client.host)
     user_agent_str = request.headers.get("User-Agent", "Unknown")
     referrer = request.headers.get("Referer", "Direct")
 
+    if ip not in ip_to_name_map:
+        visitor_name = generate_funny_name(ip)
+        ip_to_name_map[ip] = visitor_name
+    else:
+        visitor_name = ip_to_name_map[ip]
+    
     # Parse user agent
     user_agent = parse(user_agent_str)
     device_type = (
@@ -41,7 +47,9 @@ def log_visitor(request, db, page):
         device_type=device_type,
         browser=browser,
         operating_system=operating_system,
+        visitor_name=visitor_name,
     )
+    
     db.add(visit_log)
     db.commit()
 
