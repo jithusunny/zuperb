@@ -5,6 +5,7 @@ CHANGES = [
         <ol>
             <li><strong>Added themes!:</strong> maintains same theme for a session.</a></li>
             <li><strong>Refactor:</strong> use middleware for logging, etc. clean up a little bit.</a></li>            
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/eMGb-EobHRY" target="_blank">Nature does not hurry</a></li>
         </ol>
         """
     },
