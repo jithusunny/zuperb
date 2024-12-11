@@ -17,3 +17,4 @@ class VisitLog(Base):
     browser = Column(String)
     operating_system = Column(String)
     visitor_name = Column(String)
+    theme_id = Column(Integer, default=0)

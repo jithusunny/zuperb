@@ -43,7 +43,7 @@ QUOTES = [
     {"quote": "If a man knows not which port he sails, no wind is favorable.", "author": "Seneca"},
     {"quote": "We are more often frightened than hurt; and we suffer more in imagination than in reality.", "author": "Seneca"},
     {"quote": "Curb your desire—don’t set your heart on so many things and you will get what you need.", "author": "Epictetus"},
-    {"quote": "Don’t explain your philosophy. Embody it.", "author": "Epictetus"},
+    {"quote": "Don't explain your philosophy. Embody it.", "author": "Epictetus"},
     {"quote": "More is lost by indecision than wrong decision.", "author": "Marcus Tullius Cicero"},
     {"quote": "Difficulties strengthen the mind, as labor does the body.", "author": "Seneca"},
     {"quote": "Men are disturbed not by things, but by the views which they take of them.", "author": "Epictetus"},

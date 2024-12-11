@@ -9,8 +9,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--background-color, #f9f9f9);
+    color: var(--text-color, #333);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,8 +18,8 @@ body {
 
 /* Header styling */
 .header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--header-background, #fff);
+    box-shadow: 0 2px 4px var(--header-shadow, rgba(0, 0, 0, 0.1));
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@ body {
 
 .user-name {
     font-weight: bold;
-    color: #333;
+    color: var(--text-color, #333);
     font-size: 0.9rem;
 }
 
@@ -82,8 +82,8 @@ body {
 
 /* Updates Page - Wide Cards */
 .update-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--card-background, #fff);
+    border: 1px solid var(--card-border, #ddd);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px; 
@@ -101,8 +101,8 @@ body {
 }
 
 .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--card-background, #fff);
+    border: 1px solid var(--card-border, #ddd);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -117,8 +117,8 @@ body {
 
 /* Recipes Page - Card Container */
 .centered-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--card-background, #fff);
+    border: 1px solid var(--card-border, #ddd);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px; 
@@ -131,12 +131,12 @@ body {
     text-align: center; 
     font-size: 2rem; 
     margin-bottom: 20px; 
-    color: #333; 
+    color: var(--text-color, #333); 
 }
 
 h2, h3, h4 {
     margin-bottom: 20px; 
-    color: #333; 
+    color: var(--text-color, #333); 
 }
 
 ul, ol {
@@ -150,8 +150,8 @@ p {
 
 /* Jumbo Quote Card */
 .quote-card {
-    background-color: #fefefe; 
-    border: 2px solid #007bff; 
+    background-color: var(--card-background, #fefefe); 
+    border: 2px solid var(--primary-color, #007bff); 
     border-radius: 12px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 30px; 
@@ -165,7 +165,7 @@ p {
     font-size: 1.5rem; 
     line-height: 1.8; 
     font-weight: normal; 
-    color: #333; 
+    color: var(--text-color, #333); 
     font-style: italic; 
 }
 
@@ -173,7 +173,7 @@ p {
     margin-top: 15px; 
     font-size: 1.2rem; 
     font-weight: bold; 
-    color: #007bff; 
+    color: var(--primary-color, #007bff); 
 }
 
 /* Stats Table */
@@ -186,7 +186,7 @@ table {
 
 th, td {
     padding: 16px; 
-    border: 1px solid #ddd; 
+    border: 1px solid var(--card-border, #ddd); 
     text-align: left; 
 }
 
@@ -206,20 +206,10 @@ tr:nth-child(even) {
 }
 
 /* Pagination Buttons */
-.pagination {
-    display: flex;
-    justify-content: space-between; 
-    margin-top: 15px; 
-    width: 100%; 
-    max-width: 1200px; 
-    margin-left: auto; 
-    margin-right: auto;
-}
-
 .pagination a {
     padding: 10px 20px; 
     text-decoration: none;
-    background-color: #007bff;
+    background-color: var(--primary-color, #007bff);
     color: white;
     border-radius: 4px;
     font-size: 1rem;
@@ -235,14 +225,14 @@ tr:nth-child(even) {
 }
 
 .pagination a:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color, #0056b3);
     transform: translateY(-2px); 
 }
 
 /* Footer styling */
 .footer {
-    background-color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--header-background, #fff);
+    box-shadow: 0 -2px 4px var(--header-shadow, rgba(0, 0, 0, 0.1));
     position: sticky;
     bottom: 0;
     left: 0;
@@ -260,65 +250,11 @@ tr:nth-child(even) {
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color, #333);
     transition: color 0.3s;
 }
 
 .footer a:hover {
     text-decoration: underline;
-    color: #007bff;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer {
-        font-size: 0.85rem;
-    }
-
-    .footer a {
-        font-size: 0.85rem;
-    }
-}
-
-.about-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-    color: #333;
-}
-
-.about-hero {
-    background: linear-gradient(135deg, #e0f7fa 0%, #fff9c4 100%);
-    padding: 40px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-}
-
-.about-heading {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.about-subtext {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 0;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.about-content {
-    background: #fff;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    color: var(--primary-color, #007bff);
 }
