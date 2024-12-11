@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-11",
+        "content": """
+        <ol>
+            <li><strong>Added themes!:</strong> maintains same theme for a session.</a></li>
+            <li><strong>Refactor:</strong> use middleware for logging, etc. clean up a little bit.</a></li>            
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-10",
         "content": """
         <ol>

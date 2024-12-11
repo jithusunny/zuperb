@@ -82,13 +82,27 @@ async def quotes(request: Request):
 async def server_status(request: Request):
     boot_time = psutil.boot_time()
     uptime_seconds = time.time() - boot_time
+    memory = psutil.virtual_memory()
+    disk = psutil.disk_usage('/')
+
     status = {
         "uptime_hours": int(uptime_seconds // 3600),
+        "start_time_formatted": datetime.fromtimestamp(boot_time).strftime("%b %d, %I:%M %p"),
         "cpu_usage": f"{psutil.cpu_percent(interval=1):.1f}",
-        "memory_used": int(psutil.virtual_memory().used / (1024**2)),
-        "disk_used": f"{psutil.disk_usage('/').used / (1024**3):.1f}",
+        "memory_used": int(memory.used / (1024**2)),
+        "memory_total": int(memory.total / (1024**2)),
+        "disk_used": f"{disk.used / (1024**3):.1f}",
+        "disk_total": f"{disk.total / (1024**3):.1f}",
     }
-    return templates.TemplateResponse("server_status.html", {"request": request, "status": status, "visitor_name": request.state.visitor_name, "theme": request.state.theme})
+    return templates.TemplateResponse(
+        "server_status.html", 
+        {
+            "request": request, 
+            "status": status, 
+            "visitor_name": request.state.visitor_name, 
+            "theme": request.state.theme
+        }
+    )
 
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request):
