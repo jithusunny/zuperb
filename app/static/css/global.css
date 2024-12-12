@@ -116,6 +116,16 @@ body {
 }
 
 /* Recipes Page - Card Container */
+.recipes-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Add space between the cards */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: center; /* Optional: Adjust vertical alignment */
+    padding: 20px; /* Add padding for spacing */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
 .centered-card {
     background-color: var(--card-background, #fff);
     border: 1px solid var(--card-border, #ddd);

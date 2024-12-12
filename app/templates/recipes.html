@@ -4,22 +4,26 @@
 {% block header_title %}Recipes{% endblock %}
 
 {% block content %}
-<div class="centered-card">
-    <h2>{{ recipes[0].name }}</h2> <!-- Heading Centered -->
-    <h3>Serves: {{ recipes[0].serves }}</h3>
+<div class="recipes-container">
+    {% for recipe in recipes %}
+    <div class="centered-card">
+        <h2>{{ recipe.name }}</h2> <!-- Recipe Name -->
+        <h3>Serves: {{ recipe.serves }}</h3>
 
-    <h4>Ingredients:</h4>
-    <ul>
-        {% for ingredient in recipes[0].ingredients %}
-        <li>{{ ingredient }}</li>
-        {% endfor %}
-    </ul>
+        <h4>Ingredients:</h4>
+        <ul>
+            {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
 
-    <h4>Instructions:</h4>
-    <ol>
-        {% for step in recipes[0].instructions %}
-        <li>{{ step }}</li>
-        {% endfor %}
-    </ol>
+        <h4>Instructions:</h4>
+        <ol>
+            {% for step in recipe.instructions %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

@@ -1,4 +1,13 @@
 CHANGES = [
+        {
+        "date": "2024-12-12",
+        "content": """
+        <ol>
+            <li><strong>Added recipe:</strong> for Snake Gourd thoran I cooked yesterday. Source: <a href="https://www.youtube.com/watch?v=zo7px-gjRQA" target="_blank">Neetha's Tasteland</a></li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/j041OShEMx4" target="_blank">"Ask and You Shall Receive</a></li>
+        </ol>
+        """
+    },
     {
         "date": "2024-12-11",
         "content": """
