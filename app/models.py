@@ -4,11 +4,14 @@ from datetime import datetime, timezone
 
 Base = declarative_base()
 
+
 class VisitLog(Base):
     __tablename__ = "visit_logs"
     id = Column(Integer, primary_key=True, index=True)
     ip = Column(String)
-    timestamp = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    timestamp = Column(
+        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+    )
     page = Column(String)
     url = Column(Text)
     referrer = Column(Text, default="Direct")

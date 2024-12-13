@@ -1,11 +1,12 @@
 CHANGES = [
-        {
+    {
         "date": "2024-12-13",
         "content": """
         <ol>
             <li><strong>Added a videos page:</strong> and a couple of videos generated from Sora in it.</li>
+            <li><strong>Setup autoformating, linting:</strong> using Black, Ruff, pre-commit.</li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-12",
@@ -14,7 +15,7 @@ CHANGES = [
             <li><strong>Added recipe:</strong> for Snake Gourd thoran I cooked yesterday. Source: <a href="https://www.youtube.com/watch?v=zo7px-gjRQA" target="_blank">Neetha's Tasteland</a></li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/j041OShEMx4" target="_blank">"Ask and You Shall Receive</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-11",
@@ -24,7 +25,7 @@ CHANGES = [
             <li><strong>Refactor:</strong> use middleware for logging, etc. clean up a little bit.</a></li>            
             <li><strong>Added Video:</strong> <a href="https://youtu.be/eMGb-EobHRY" target="_blank">Nature does not hurry</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-10",
@@ -34,7 +35,7 @@ CHANGES = [
             <li><strong>Added user avatar:</strong> with a generated name per IP</a></li>            
             <li><strong>Added Video:</strong> <a href="https://youtu.be/42DNWRclkd0" target="_blank">Magical Mornings</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-09",
@@ -43,7 +44,7 @@ CHANGES = [
             <li><strong>Added a history page:</strong> how did we reach here?</a></li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/rq3VxWv3L0k" target="_blank">When somebody is angry</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-08",
@@ -53,7 +54,7 @@ CHANGES = [
             <li><strong>Zuperb addresses you as you!:</strong> Show (You) in visits log</a></li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/Y8tC0BMwNyg" target="_blank">What actually is this?</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-07",
@@ -62,7 +63,7 @@ CHANGES = [
             <li><strong>Added System status:</strong> with some basic info about vitals</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/41se-yMuvQ0" target="_blank">One hour & one thousand years - same suchness</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-06",
@@ -71,7 +72,7 @@ CHANGES = [
             <li><strong>Updated styles:</strong> cleaned things up a little bit</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/oUR7dQvj_JQ" target="_blank">This moment is not an ordinary one!</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-05",
@@ -82,7 +83,7 @@ CHANGES = [
             <li><strong>Setup auto-deploy:</strong> via Github action. Code changes pushed will get deployed to server automatically.</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/DjeJehVzdWw" target="_blank">What is in the now?!</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-04",
@@ -92,7 +93,7 @@ CHANGES = [
             <li><strong>Added logging visits on Stats area:</strong> Also added more fun name possibilities</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/2e9AAEdE63Y" target="_blank">A cat can be your teacher!</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-03",
@@ -102,7 +103,7 @@ CHANGES = [
             <li><strong>Added Logo, favicon:</strong> Also made the styling better</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/dsiSn3PAoFs" target="_blank">Universe is a being!</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-02",
@@ -113,7 +114,7 @@ CHANGES = [
             <li><strong>Kept the App Running:</strong> Configured a systemd service to ensure the app stays up and restarts automatically if needed</li>
             <li><strong>Another short video!:</strong> <a href="https://youtu.be/TXidh8FCSUk" target="_blank">Suffering is mostly optional!</a></li>
         </ol>
-        """
+        """,
     },
     {
         "date": "2024-12-01",
@@ -129,6 +130,6 @@ CHANGES = [
             <li><strong>Verified:</strong> Tested the site at <a href="https://zuperb.in" target="_blank">https://zuperb.in</a>. Success!</li>
             <li><strong>Video!:</strong> Created the Zuperb YouTube channel. Added intro video: <a href="https://youtu.be/CSvFE0wl7G8" target="_blank">Introducing Zuperb!</a></li>
         </ol>
-        """
-    }
+        """,
+    },
 ]

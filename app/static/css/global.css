@@ -72,11 +72,11 @@ body {
 /* Updates Page - Parent Container */
 .updates-container {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 20px; 
-    width: 100%; 
-    padding: 20px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -86,18 +86,18 @@ body {
     border: 1px solid var(--card-border, #ddd);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px; 
-    width: 90%; 
+    padding: 30px;
+    width: 90%;
     max-width: 800px;
-    text-align: left; 
+    text-align: left;
 }
 
 /* Home Page Cards */
 .cards {
     display: flex;
-    gap: 30px; 
+    gap: 30px;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .card {
@@ -106,8 +106,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 30px; 
-    width: 240px; 
+    padding: 30px;
+    width: 240px;
     transition: transform 0.3s;
 }
 
@@ -118,13 +118,35 @@ body {
 /* Recipes Page - Card Container */
 .recipes-container {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    gap: 20px; /* Add space between the cards */
-    align-items: center; /* Center-align items horizontally */
-    justify-content: center; /* Optional: Adjust vertical alignment */
-    padding: 20px; /* Add padding for spacing */
-    width: 100%; /* Ensure the container spans the full width */
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 20px;
+    /* Add space between the cards */
+    align-items: center;
+    /* Center-align items horizontally */
+    justify-content: center;
+    /* Optional: Adjust vertical alignment */
+    padding: 20px;
+    /* Add padding for spacing */
+    width: 100%;
+    /* Ensure the container spans the full width */
 }
+
+.left-aligned-card {
+    background-color: var(--card-background, #fff);
+    border: 1px solid var(--card-border, #ddd);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+    /* Align text and content to the left */
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+}
+
 
 .centered-card {
     background-color: var(--card-background, #fff);
@@ -134,94 +156,102 @@ body {
     padding: 30px;
     width: 80%;
     max-width: 800px;
-    text-align: center; /* Center-align the content */
+    text-align: center;
+    /* Center-align the content */
     display: flex;
-    flex-direction: column; /* Stack the content vertically */
-    align-items: center; /* Horizontally center items */
-    justify-content: center; /* Vertically center items */
+    flex-direction: column;
+    /* Stack the content vertically */
+    align-items: center;
+    /* Horizontally center items */
+    justify-content: center;
+    /* Vertically center items */
 }
 
 .centered-card h2 {
-    text-align: center; 
-    font-size: 2rem; 
-    margin-bottom: 20px; 
-    color: var(--text-color, #333); 
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-color, #333);
 }
 
-h2, h3, h4 {
-    margin-bottom: 20px; 
-    color: var(--text-color, #333); 
+h2,
+h3,
+h4 {
+    margin-bottom: 20px;
+    color: var(--text-color, #333);
 }
 
-ul, ol {
-    margin-left: 20px; 
-    margin-bottom: 20px; 
+ul,
+ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 p {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 /* Jumbo Quote Card */
 .quote-card {
-    background-color: var(--card-background, #fefefe); 
-    border: 2px solid var(--primary-color, #007bff); 
-    border-radius: 12px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 30px; 
-    width: 70%; 
-    max-width: 600px; 
+    background-color: var(--card-background, #fefefe);
+    border: 2px solid var(--primary-color, #007bff);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 70%;
+    max-width: 600px;
     position: absolute;
-    top: 40%; 
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -60%);
-    text-align: center; 
-    font-size: 1.5rem; 
-    line-height: 1.8; 
-    font-weight: normal; 
-    color: var(--text-color, #333); 
-    font-style: italic; 
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    font-weight: normal;
+    color: var(--text-color, #333);
+    font-style: italic;
 }
 
 .quote-card footer {
-    margin-top: 15px; 
-    font-size: 1.2rem; 
-    font-weight: bold; 
-    color: var(--primary-color, #007bff); 
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color, #007bff);
 }
 
 /* Stats Table */
 table {
-    width: 95%; 
-    max-width: 1200px; 
+    width: 95%;
+    max-width: 1200px;
     border-collapse: collapse;
-    margin: 20px auto; 
+    margin: 20px auto;
 }
 
-th, td {
-    padding: 16px; 
-    border: 1px solid var(--card-border, #ddd); 
-    text-align: left; 
+th,
+td {
+    padding: 16px;
+    border: 1px solid var(--card-border, #ddd);
+    text-align: left;
 }
 
 th {
-    background-color: #f4f4f4; 
-    color: #555; 
-    font-size: 1.1rem; 
+    background-color: #f4f4f4;
+    color: #555;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
 td {
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
 }
 
 /* Pagination Buttons */
 .pagination a {
-    padding: 10px 20px; 
+    padding: 10px 20px;
     text-decoration: none;
     background-color: var(--primary-color, #007bff);
     color: white;
@@ -230,17 +260,17 @@ tr:nth-child(even) {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
-    min-width: 100px; 
+    min-width: 100px;
     text-align: center;
 }
 
 .pagination a.hidden {
-    visibility: hidden; 
+    visibility: hidden;
 }
 
 .pagination a:hover {
     background-color: var(--primary-color, #0056b3);
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 }
 
 /* Footer styling */

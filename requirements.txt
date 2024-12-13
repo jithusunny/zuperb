@@ -7,3 +7,6 @@ user-agents
 psutil
 python-dotenv
 psycopg2
+black
+ruff
+pre-commit

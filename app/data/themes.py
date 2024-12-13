@@ -151,5 +151,5 @@ THEMES = {
         "card_background": "#eff8f7",
         "card_border": "#c5d7d5",
         "primary_color": "#59998f",
-    }
+    },
 }

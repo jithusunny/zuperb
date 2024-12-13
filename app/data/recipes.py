@@ -12,7 +12,7 @@ RECIPES = [
             "2-3 tsp salt",
             "1 tsp turmeric powder",
             "1 tsp chilli powder",
-            "2 tablespoons oil"
+            "2 tablespoons oil",
         ],
         "instructions": [
             "Cut all veggies into tiny pieces",
@@ -23,9 +23,9 @@ RECIPES = [
             "Add eggs",
             "Mix, and heat (for 3-5 minutes)",
             "Enjoy it hot!",
-        ]
+        ],
     },
-        {
+    {
         "name": "Snake Gourd Thoran(Kerala style, dry vegetable dish)",
         "serves": 4,
         "ingredients": [
@@ -38,7 +38,7 @@ RECIPES = [
             "Turmeric powder - 1/2 to 1 teaspoon",
             "Chilli powder - 1/2 - 1 teaspoon",
             "Cumin(Jeerakam) powder - 1/4 teaspoon",
-            "Salt - 1 to 2 teaspoon"
+            "Salt - 1 to 2 teaspoon",
         ],
         "instructions": [
             "Cut snake gourd (half little finger length)"
@@ -55,6 +55,6 @@ RECIPES = [
             "Repeat for about 8 minutes till the snake gourd is cooked"
             "Mix, and heat in high flame (for 1 minute)",
             "Enjoy it hot!",
-        ]
-    }
+        ],
+    },
 ]
