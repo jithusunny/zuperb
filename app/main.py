@@ -14,6 +14,7 @@ from app.middleware import add_user_info_and_logging_middleware
 from app.data.changes import CHANGES
 from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
+from app.data.videos import VIDEOS
 
 # Initialize FastAPI
 app = FastAPI()
@@ -111,3 +112,15 @@ async def about(request: Request):
 @app.get("/history", response_class=HTMLResponse)
 async def history(request: Request):
     return templates.TemplateResponse("history.html", {"request": request, "visitor_name": request.state.visitor_name, "theme": request.state.theme})
+
+@app.get("/videos", response_class=HTMLResponse)
+async def videos(request: Request):
+    return templates.TemplateResponse(
+        "videos.html", 
+        {
+            "request": request, 
+            "videos": VIDEOS, 
+            "visitor_name": request.state.visitor_name, 
+            "theme": request.state.theme
+        }
+    )

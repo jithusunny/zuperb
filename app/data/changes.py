@@ -1,5 +1,13 @@
 CHANGES = [
         {
+        "date": "2024-12-13",
+        "content": """
+        <ol>
+            <li><strong>Added a videos page:</strong> and a couple of videos generated from Sora in it.</li>
+        </ol>
+        """
+    },
+    {
         "date": "2024-12-12",
         "content": """
         <ol>

@@ -131,10 +131,14 @@ body {
     border: 1px solid var(--card-border, #ddd);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px; 
-    width: 80%; 
-    max-width: 800px; 
-    text-align: left; 
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center; /* Center-align the content */
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    align-items: center; /* Horizontally center items */
+    justify-content: center; /* Vertically center items */
 }
 
 .centered-card h2 {
