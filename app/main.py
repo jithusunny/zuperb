@@ -15,6 +15,8 @@ from app.data.changes import CHANGES
 from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
 from app.data.videos import VIDEOS
+from app.data.coding_problems import CODING_PROBLEMS
+
 
 # Initialize FastAPI
 app = FastAPI()
@@ -183,6 +185,19 @@ async def videos(request: Request):
         {
             "request": request,
             "videos": VIDEOS,
+            "visitor_name": request.state.visitor_name,
+            "theme": request.state.theme,
+        },
+    )
+
+
+@app.get("/code", response_class=HTMLResponse)
+async def code(request: Request):
+    return templates.TemplateResponse(
+        "code.html",
+        {
+            "request": request,
+            "coding_problems": CODING_PROBLEMS,
             "visitor_name": request.state.visitor_name,
             "theme": request.state.theme,
         },

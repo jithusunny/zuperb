@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Code Problems - Zuperb{% endblock %}
+{% block header_title %}Code Problems{% endblock %}
+
+{% block content %}
+<div class="recipes-container">
+    {% for problem in coding_problems %}
+    <div class="left-aligned-card">
+        <h2>{{ problem.title }} (Difficulty level: {{ problem.difficulty }})</h2>
+        <p>{{ problem.problem }}</p>
+        <button onclick="toggleCode('{{ loop.index }}')">Show/Hide Solution</button>
+        <pre id="code-{{ loop.index }}" style="display: none; background: #f4f4f4; padding: 15px; border-radius: 5px;">
+{{ problem.code }}
+        </pre>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleCode(id) {
+        const codeElement = document.getElementById(`code-${id}`);
+        codeElement.style.display = codeElement.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+{% endblock %}
