@@ -41,9 +41,9 @@ RECIPES = [
             "Salt - 1 to 2 teaspoon",
         ],
         "instructions": [
-            "Cut snake gourd (half little finger length)"
+            "Cut snake gourd (half little finger length)",
             "Cut onion, chilly, garlic like usual",
-            "Mix snake gourd, onion, chilly, gralic, curry leaves, turmeric, chilly powder, cumin powder, grated coconut & salt"
+            "Mix snake gourd, onion, chilly, gralic, curry leaves, turmeric, chilly powder, cumin powder, grated coconut & salt",
             "Mix thoroughly with your hand and see that salt is in the right amount",
             "Heat pan, add oil, heat",
             "Splutter 3/4 teaspoon mustard and 3 dry chilli(cut in half)",
@@ -52,7 +52,7 @@ RECIPES = [
             "Keep closed for 2 minutes",
             "Mix, and heat (for 1 minute)",
             "Keep closed for 2 minutes",
-            "Repeat for about 8 minutes till the snake gourd is cooked"
+            "Repeat for about 8 minutes till the snake gourd is cooked",
             "Mix, and heat in high flame (for 1 minute)",
             "Enjoy it hot!",
         ],
