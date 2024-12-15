@@ -302,3 +302,39 @@ tr:nth-child(even) {
     text-decoration: underline;
     color: var(--primary-color, #007bff);
 }
+
+/* Mobile-friendly design adjustments */
+@media (max-width: 768px) {
+    .recipes-container {
+        padding: 10px;
+        /* Reduce padding for smaller screens */
+    }
+
+    .left-aligned-card {
+        width: 100%;
+        /* Use full width on small screens */
+        padding: 15px;
+        /* Reduce padding inside cards */
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        /* Reduce font size for titles */
+    }
+
+    button {
+        padding: 8px 12px;
+        /* Adjust button padding */
+        font-size: 0.9rem;
+        /* Reduce button text size */
+    }
+
+    pre {
+        font-size: 0.85rem;
+        /* Reduce code font size */
+        overflow-x: auto;
+        /* Add horizontal scrolling for long code */
+        white-space: pre-wrap;
+        /* Wrap long lines of code */
+    }
+}

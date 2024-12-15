@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-15",
+        "content": """
+        <ol>
+            <li><strong>Added a couple of coding problems:</strong> and a style fix for code card in mobile screen</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/LedM0kb8e5k" target="_blank">"Nature is supernatural</a></li>
+        </ol>
+        """,
+    },
+    {
         "date": "2024-12-14",
         "content": """
         <ol>
