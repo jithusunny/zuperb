@@ -16,7 +16,14 @@ def get_first_non_repeating_character(str):
         if char_map[char]['count'] == 1:
             return char_map[char]['index']
     return -1
-        """,
+
+#Test cases
+assert(get_first_non_repeating_character("") == -1)
+assert(get_first_non_repeating_character("jj") == -1)
+assert(get_first_non_repeating_character("jithu") == 0)
+assert(get_first_non_repeating_character("jithuj") == 1)
+
+            """,
     },
     {
         "title": "Merge Overlapping Intervals",
@@ -40,7 +47,19 @@ def merge_overlapping_intervals(intervals):
     final_intervals.append(current)
 
     return final_intervals
-        """,
+
+# Test cases
+assert merge_overlapping_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]) == [
+    [1, 6],
+    [8, 10],
+    [15, 18],
+]
+
+assert merge_overlapping_intervals([[1, 4], [4, 5]]) == [[1, 5]]
+
+assert merge_overlapping_intervals([[1, 5], [3, 4]]) == [[1, 5]]
+    
+                    """,
     },
     {
         "title": "Longest Substring Without Repeating Characters",
