@@ -18,7 +18,7 @@
     </p>
 
     <h3 style="margin-bottom:5px; margin-top:20px;">
-        🧠 CPU
+        🧠 CPU Usage
         <span title="The server's processing power usage.">&#9432;</span>
     </h3>
     <p style="margin-top:0;">
@@ -26,7 +26,7 @@
     </p>
 
     <h3 style="margin-bottom:5px; margin-top:20px;">
-        💭 Memory
+        💭 Memory Usage
         <span title="The server’s memory usage (like your computer's RAM).">&#9432;</span>
     </h3>
     <p style="margin-top:0;">
@@ -39,6 +39,14 @@
     </h3>
     <p style="margin-top:0;">
         <strong>{{ status.disk_used }} GB</strong> of <strong>{{ status.disk_total }} GB</strong> in use
+    </p>
+
+    <h3 style="margin-bottom:5px; margin-top:20px;">
+        🧑‍🤝‍🧑 Online Users
+        <span title="The number of currently active users on the website.">&#9432;</span>
+    </h3>
+    <p style="margin-top:0;">
+        <strong>{{ status.online_users }}</strong> user(s) online right now.
     </p>
 </div>
 {% endblock %}

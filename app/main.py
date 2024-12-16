@@ -10,7 +10,11 @@ from fastapi.staticfiles import StaticFiles
 from app.models import VisitLog
 from app.db import initialize_db, get_db, SessionLocal
 from app.utils import log_visitor, paginate
-from app.middleware import add_user_info_and_logging_middleware
+from app.middleware import (
+    online_users,
+    cleanup_online_users,
+    add_user_info_and_logging_middleware,
+)
 from app.data.changes import CHANGES
 from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
@@ -127,11 +131,16 @@ async def quotes(request: Request):
 
 @app.get("/server-status", response_class=HTMLResponse)
 async def server_status(request: Request):
+    """Fetch and display server status."""
     boot_time = psutil.boot_time()
     uptime_seconds = time.time() - boot_time
     memory = psutil.virtual_memory()
     disk = psutil.disk_usage("/")
 
+    # Perform cleanup to ensure the online user count is accurate
+    cleanup_online_users()
+
+    # Fetch server status and online users
     status = {
         "uptime_hours": int(uptime_seconds // 3600),
         "start_time_formatted": datetime.fromtimestamp(boot_time).strftime(
@@ -142,7 +151,9 @@ async def server_status(request: Request):
         "memory_total": int(memory.total / (1024**2)),
         "disk_used": f"{disk.used / (1024**3):.1f}",
         "disk_total": f"{disk.total / (1024**3):.1f}",
+        "online_users": len(online_users),  # Include online users count
     }
+
     return templates.TemplateResponse(
         "server_status.html",
         {
