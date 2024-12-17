@@ -1,10 +1,12 @@
+import os
 import time
 import arrow
 import random
 import psutil
 from datetime import datetime
 from fastapi import FastAPI, Request, Depends
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
+
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from app.models import VisitLog
@@ -213,3 +215,10 @@ async def code(request: Request):
             "theme": request.state.theme,
         },
     )
+
+
+@app.get("/robots.txt", response_class=PlainTextResponse)
+def serve_robots():
+    file_path = os.path.join("app", "static", "robots.txt")
+    with open(file_path, "r") as f:
+        return f.read()

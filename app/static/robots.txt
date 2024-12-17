@@ -1,0 +1,19 @@
+User-agent: *
+
+# Allow main public pages
+Allow: /
+Allow: /updates
+Allow: /server-status
+Allow: /history
+Allow: /about
+Allow: /recipes
+Allow: /quotes
+Allow: /videos
+Allow: /code
+
+# Disallow common sensitive or non-existent paths
+Disallow: /.env
+Disallow: /.git/
+Disallow: /.well-known/
+Disallow: /files/
+Disallow: /images/
