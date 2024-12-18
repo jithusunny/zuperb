@@ -1,5 +1,17 @@
 CHANGES = [
     {
+        "date": "2024-12-18",
+        "content": """
+        <ol>
+            <li><strong>Confirmed automatic OS-level security updates and patches is on:</strong> which applies latest security fixes to server automatically.</li>
+            <li><strong>Setup ufw:</strong> to block all ports except SSH (port 22) and HTTP/HTTPS (ports 80 and 443).</li>
+            <li><strong>Setup fail2ban:</strong> to ban suspicious IP addresses for repeated failed login attempts.</li>
+            <li><strong>Enforced Strict SSH Security:</strong> by disabling root Login and disabling password authentication.</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/RIZA3BkAsR0" target="_blank">Water is wonderful</a></li>
+        </ol>
+        """,
+    },
+    {
         "date": "2024-12-17",
         "content": """
         <ol>
