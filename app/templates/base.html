@@ -1,31 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Zuperb{% endblock %}</title>
     <link rel="stylesheet" href="/static/css/global.css">
     <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x32.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <style>
         :root {
-            --background-color: {{ theme.background_color }};
-            --text-color: {{ theme.text_color }};
-            --header-background: {{ theme.header_background }};
-            --header-shadow: {{ theme.header_shadow }};
-            --card-background: {{ theme.card_background }};
-            --card-border: {{ theme.card_border }};
-            --primary-color: {{ theme.primary_color }};
+            --background-color: {
+                    {
+                    theme.background_color
+                }
+            }
+
+            ;
+
+            --text-color: {
+                    {
+                    theme.text_color
+                }
+            }
+
+            ;
+
+            --header-background: {
+                    {
+                    theme.header_background
+                }
+            }
+
+            ;
+
+            --header-shadow: {
+                    {
+                    theme.header_shadow
+                }
+            }
+
+            ;
+
+            --card-background: {
+                    {
+                    theme.card_background
+                }
+            }
+
+            ;
+
+            --card-border: {
+                    {
+                    theme.card_border
+                }
+            }
+
+            ;
+
+            --primary-color: {
+                    {
+                    theme.primary_color
+                }
+            }
+
+            ;
         }
     </style>
 </head>
+
 <body>
-    <!-- Header: Logo, title (dynamic) -->
+    <!-- Header: Logo, title, and time -->
     <header class="header">
         <a href="/" class="logo">
             <img src="/static/images/logo.png" alt="Zuperb Logo">
         </a>
         <h1 class="header-title">{% block header_title %}Zuperb{% endblock %}</h1>
+
+        <!-- Move the time container before the user-info -->
+        <div class="current-time-container">
+            <span id="current-time"></span>
+        </div>
+
         {% if visitor_name %}
         <div class="user-info">
             <img src="/static/images/avatar.png" alt="User Avatar" class="user-avatar">
@@ -39,7 +95,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer: Evenly spaced items -->
+    <!-- Footer -->
     <footer class="footer">
         <a href="/updates">What's New?</a>
         <a href="/server-status">Status</a>
@@ -47,5 +103,8 @@
         <a href="/history">History</a>
         <a href="/about">About</a>
     </footer>
+
+    <script src="/static/js/time.js"></script>
 </body>
+
 </html>
