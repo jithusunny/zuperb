@@ -3,7 +3,7 @@ CHANGES = [
         "date": "2024-12-20",
         "content": """
         <ol>
-            <li><strong>Now zuperb can take selfies:</strong> but saving it only locally.</li>
+            <li><strong>Now zuperb can take selfies:</strong> but saving it only locally. Added playwright dependency</li>
             <li><strong>Added Video:</strong> <a href="https://youtu.be/irj9krQFVLA" target="_blank">You are always where you are</a></li>
         </ol>
         """,
