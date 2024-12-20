@@ -1,8 +1,26 @@
+import os
 import random
 import hashlib
 from user_agents import parse
+from datetime import datetime
 from app.models import VisitLog
+from playwright.sync_api import sync_playwright
 from app.data.themes import THEMES
+
+BASE_URL = "http://127.0.0.1:8000"
+CONFIG_PATHS_FOR_SCREENSHOT = [
+    "/",
+    "/updates",
+    "/stats",
+    "/recipes",
+    "/quotes",
+    "/server-status",
+    "/about",
+    "/history",
+    "/videos",
+    "/code",
+]
+SCREENSHOTS_OUTPUT_DIR = "/home/jisuka/zuperb_screenshots"
 
 ADJECTIVES = [
     "Bright",
@@ -119,3 +137,44 @@ def paginate(query, page, per_page):
         "next_page": page + 1 if len(items) == per_page else None,
         "previous_page": page - 1 if page > 1 else None,
     }
+
+
+def take_screenshots():
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    output_dir = os.path.join(SCREENSHOTS_OUTPUT_DIR, today_str)
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Take screenshots for each configured path
+    for path in CONFIG_PATHS_FOR_SCREENSHOT:
+        name = path.strip("/")
+        full_url = f"{BASE_URL}{path}"
+        print("full_url is:", full_url)
+        mobile_filename = f"{name}_mobile.png"
+        laptop_filename = f"{name}_laptop.png"
+
+        mobile_path = os.path.join(output_dir, mobile_filename)
+        laptop_path = os.path.join(output_dir, laptop_filename)
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+
+            # Mobile screenshot
+            mobile_context = browser.new_context(
+                viewport={"width": 375, "height": 667},
+                user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)",
+            )
+            mobile_page = mobile_context.new_page()
+            mobile_page.goto(full_url)
+            mobile_page.screenshot(path=mobile_path, full_page=True)
+            mobile_context.close()
+
+            # Laptop screenshot
+            laptop_context = browser.new_context(
+                viewport={"width": 1366, "height": 768}
+            )
+            laptop_page = laptop_context.new_page()
+            laptop_page.goto(full_url)
+            laptop_page.screenshot(path=laptop_path, full_page=True)
+            laptop_context.close()
+
+            browser.close()

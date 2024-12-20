@@ -11,7 +11,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from app.models import VisitLog
 from app.db import initialize_db, get_db, SessionLocal
-from app.utils import log_visitor, paginate
+from app.utils import log_visitor, paginate, take_screenshots
 from app.middleware import (
     online_users,
     cleanup_online_users,
@@ -222,3 +222,13 @@ def serve_robots():
     file_path = os.path.join("app", "static", "robots.txt")
     with open(file_path, "r") as f:
         return f.read()
+
+
+@app.get("/screenshots")
+def run_screenshots(request: Request):
+    if request.client.host != "127.0.0.1":
+        return {"status": "not allowed"}
+
+    take_screenshots()
+
+    return {"status": "done"}
