@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.text-4xl {
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 1px;
+}

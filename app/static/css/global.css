@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+/* Make html and body fill the entire viewport */
+html,
+body {
+    height: 100%;
+}
+
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
@@ -18,13 +24,12 @@ body {
 
 /* Header styling */
 .header {
-    background-color: var(--header-background, #fff);
+    background: linear-gradient(to bottom, var(--header-background, #fff), #ebebeb);
     box-shadow: 0 2px 4px var(--header-shadow, rgba(0, 0, 0, 0.1));
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
     top: 0;
     gap: 20px;
     z-index: 1000;
@@ -120,17 +125,11 @@ body {
 .recipes-container {
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     gap: 20px;
-    /* Add space between the cards */
     align-items: center;
-    /* Center-align items horizontally */
     justify-content: center;
-    /* Optional: Adjust vertical alignment */
     padding: 20px;
-    /* Add padding for spacing */
     width: 100%;
-    /* Ensure the container spans the full width */
 }
 
 .left-aligned-card {
@@ -142,12 +141,9 @@ body {
     width: 80%;
     max-width: 800px;
     text-align: left;
-    /* Align text and content to the left */
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
 }
-
 
 .centered-card {
     background-color: var(--card-background, #fff);
@@ -158,14 +154,10 @@ body {
     width: 80%;
     max-width: 800px;
     text-align: center;
-    /* Center-align the content */
     display: flex;
     flex-direction: column;
-    /* Stack the content vertically */
     align-items: center;
-    /* Horizontally center items */
     justify-content: center;
-    /* Vertically center items */
 }
 
 .centered-card h2 {
@@ -262,7 +254,6 @@ tr:nth-child(even) {
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
     min-width: 100px;
-    text-align: center;
 }
 
 .pagination a.hidden {
@@ -276,19 +267,17 @@ tr:nth-child(even) {
 
 /* Footer styling */
 .footer {
-    background-color: var(--header-background, #fff);
+    background: linear-gradient(to top, var(--header-background, #fff), #ebebeb);
     box-shadow: 0 -2px 4px var(--header-shadow, rgba(0, 0, 0, 0.1));
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
+    /* Thinner strip on large screens */
     font-size: 0.9rem;
+    flex-wrap: wrap;
+    /* Allow wrapping if needed on intermediate sizes */
+    gap: 10px;
 }
 
 .footer a {
@@ -304,39 +293,39 @@ tr:nth-child(even) {
     color: var(--primary-color, #007bff);
 }
 
+/* Adjust footer layout for mobile sizes */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 5px;
+    }
+}
+
 /* Mobile-friendly design adjustments */
 @media (max-width: 768px) {
     .recipes-container {
         padding: 10px;
-        /* Reduce padding for smaller screens */
     }
 
     .left-aligned-card {
         width: 100%;
-        /* Use full width on small screens */
         padding: 15px;
-        /* Reduce padding inside cards */
     }
 
     h2 {
         font-size: 1.25rem;
-        /* Reduce font size for titles */
     }
 
     button {
         padding: 8px 12px;
-        /* Adjust button padding */
         font-size: 0.9rem;
-        /* Reduce button text size */
     }
 
     pre {
         font-size: 0.85rem;
-        /* Reduce code font size */
         overflow-x: auto;
-        /* Add horizontal scrolling for long code */
         white-space: pre-wrap;
-        /* Wrap long lines of code */
     }
 }
 
@@ -353,12 +342,10 @@ tr:nth-child(even) {
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     gap: 6px;
-    /* space between icon and text */
 }
 
 .current-time-container::before {
     content: "⏰";
-    /* A small clock emoji */
     font-size: 1.1rem;
     opacity: 0.8;
 }
