@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 
 {% block title %}What's New? - Zuperb{% endblock %}
-{% block header_title %}What's New?{% endblock %}
 
 {% block content %}
-<div class="updates-container">
-    {% for update in updates %}
-    <div class="update-card">
-        <h3>{{ update.date }}</h3>
-        <p>{{ update.content | safe }}</p>
+<div class="flex flex-col items-center py-8 bg-gray-100">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">What's New?</h1>
+    <div class="flex flex-col gap-6 px-4 py-8 mx-auto max-w-3xl">
+        {% for update in updates %}
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ update.date }}</h3>
+            <div class="text-gray-700 leading-relaxed">
+                {{ update.content | safe }}
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

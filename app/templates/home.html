@@ -1,32 +1,33 @@
-{% extends "base-tailwind.html" %}
+{% extends "base.html" %}
 
 {% block title %}Home - Zuperb{% endblock %}
+{% block page_title %}Home{% endblock %}
 
 {% block content %}
-<div class="flex flex-wrap justify-center gap-6 p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
     <!-- Card: Recipes -->
-    <div class="bg-white shadow-md rounded-lg p-6 w-72 hover:shadow-lg transition">
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
         <h2 class="text-xl font-bold mb-2">Recipes</h2>
         <p class="text-gray-600 mb-4">Explore delicious recipes</p>
         <a href="/recipes" class="text-blue-500 font-medium hover:underline">View Recipes</a>
     </div>
 
     <!-- Card: Quotes -->
-    <div class="bg-white shadow-md rounded-lg p-6 w-72 hover:shadow-lg transition">
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
         <h2 class="text-xl font-bold mb-2">Quotes</h2>
         <p class="text-gray-600 mb-4">Find daily inspiration</p>
         <a href="/quotes" class="text-blue-500 font-medium hover:underline">View Quotes</a>
     </div>
 
     <!-- Card: Videos -->
-    <div class="bg-white shadow-md rounded-lg p-6 w-72 hover:shadow-lg transition">
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
         <h2 class="text-xl font-bold mb-2">Videos</h2>
         <p class="text-gray-600 mb-4">Watch something</p>
         <a href="/videos" class="text-blue-500 font-medium hover:underline">View Videos</a>
     </div>
 
     <!-- Card: Code -->
-    <div class="bg-white shadow-md rounded-lg p-6 w-72 hover:shadow-lg transition">
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
         <h2 class="text-xl font-bold mb-2">Code</h2>
         <p class="text-gray-600 mb-4">Solve interesting problems</p>
         <a href="/code" class="text-blue-500 font-medium hover:underline">View Problems</a>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ problem.title }} - Zuperb{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-start h-[calc(100vh-4rem)] pt-16">
+    <div class="bg-white shadow-lg rounded-lg max-w-2xl mx-auto p-8">
+        <h1 class="text-2xl font-bold mb-4">{{ problem.title }}</h1>
+        <p class="text-gray-700 text-lg mb-6"><span class="font-semibold">Difficulty:</span> {{ problem.difficulty }}
+        </p>
+        <p class="text-gray-800 text-base leading-relaxed mb-4">{{ problem.problem }}</p>
+
+        <div>
+            <button id="toggle-solution"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded mb-4">
+                Show Solution
+            </button>
+            <pre id="solution" class="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm text-gray-800 hidden">
+                {{ problem.code }}
+            </pre>
+        </div>
+
+        <div class="text-center mt-6">
+            <a href="/code" class="text-gray-700 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg">Back to
+                Problems</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('toggle-solution').addEventListener('click', function () {
+        const solution = document.getElementById('solution');
+        const button = document.getElementById('toggle-solution');
+
+        if (solution.classList.contains('hidden')) {
+            solution.classList.remove('hidden');
+            button.textContent = 'Hide Solution';
+        } else {
+            solution.classList.add('hidden');
+            button.textContent = 'Show Solution';
+        }
+    });
+</script>
+{% endblock %}

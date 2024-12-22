@@ -1,5 +1,6 @@
 CODING_PROBLEMS = [
     {
+        "id": 1,
         "title": "Find the First Unique Character",
         "difficulty": "Easy",
         "problem": "Given a string, find the first non-repeating character and return its index. If all characters repeat, return -1.",
@@ -26,6 +27,7 @@ assert(get_first_non_repeating_character("jithuj") == 1)
             """,
     },
     {
+        "id": 2,
         "title": "Merge Overlapping Intervals",
         "difficulty": "Easy",
         "problem": "Given a list of intervals, merge overlapping intervals and return the merged intervals.",
@@ -62,6 +64,7 @@ assert merge_overlapping_intervals([[1, 5], [3, 4]]) == [[1, 5]]
                     """,
     },
     {
+        "id": 3,
         "title": "Longest Substring Without Repeating Characters",
         "difficulty": "Medium",
         "problem": "Find the length of the longest substring in a given string that contains no repeating characters.\n\nInput:\nstring = 'abcabcbb'\nOutput:\n3 (substring 'abc')",
@@ -89,6 +92,7 @@ assert fun("") == 0
         """,
     },
     {
+        "id": 4,
         "title": "Coin Change Problem",
         "difficulty": "Hard",
         "problem": "You are given an integer array coins representing coin denominations and an integer amount representing the total amount.\nReturn the fewest number of coins that make up the amount. If it’s not possible, return -1.",

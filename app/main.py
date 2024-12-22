@@ -105,14 +105,24 @@ async def stats(request: Request, db=Depends(get_db), page: int = 1):
 
 
 @app.get("/recipes", response_class=HTMLResponse)
-async def recipes(request: Request):
+async def get_recipes_list(request: Request):
     return templates.TemplateResponse(
         "recipes.html",
         {
             "request": request,
             "recipes": RECIPES,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
+        },
+    )
+
+
+@app.get("/recipes/{recipe_id}", response_class=HTMLResponse)
+async def get_recipe_detail(request: Request, recipe_id: int):
+    recipe = next((recipe for recipe in RECIPES if recipe["id"] == recipe_id), None)
+    return templates.TemplateResponse(
+        "recipe.html",
+        {
+            "request": request,
+            "recipe": recipe,
         },
     )
 
@@ -204,13 +214,41 @@ async def videos(request: Request):
     )
 
 
+@app.get("/videos/{video_id}", response_class=HTMLResponse)
+async def video_detail(request: Request, video_id: int):
+    video = next((v for v in VIDEOS if v["id"] == video_id), None)
+    return templates.TemplateResponse(
+        "video.html",
+        {
+            "request": request,
+            "video": video,
+            "visitor_name": request.state.visitor_name,
+            "theme": request.state.theme,
+        },
+    )
+
+
 @app.get("/code", response_class=HTMLResponse)
 async def code(request: Request):
     return templates.TemplateResponse(
-        "code.html",
+        "coding_problems.html",
         {
             "request": request,
             "coding_problems": CODING_PROBLEMS,
+            "visitor_name": request.state.visitor_name,
+            "theme": request.state.theme,
+        },
+    )
+
+
+@app.get("/code/{problem_id}", response_class=HTMLResponse)
+async def code_detail(request: Request, problem_id: int):
+    problem = next((p for p in CODING_PROBLEMS if p["id"] == problem_id), None)
+    return templates.TemplateResponse(
+        "coding_problem.html",
+        {
+            "request": request,
+            "problem": problem,
             "visitor_name": request.state.visitor_name,
             "theme": request.state.theme,
         },

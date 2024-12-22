@@ -1,5 +1,6 @@
 RECIPES = [
     {
+        "id": 1,
         "name": "Omelette (Veggies Version)",
         "serves": 1,
         "ingredients": [
@@ -26,6 +27,7 @@ RECIPES = [
         ],
     },
     {
+        "id": 2,
         "name": "Snake Gourd Thoran(Kerala style, dry vegetable dish)",
         "serves": 4,
         "ingredients": [

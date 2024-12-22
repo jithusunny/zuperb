@@ -5,106 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Zuperb{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/global.css">
-    <link rel="icon" href="/static/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/static/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <style>
-        :root {
-            --background-color: {
-                    {
-                    theme.background_color
-                }
-            }
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-            ;
-
-            --text-color: {
-                    {
-                    theme.text_color
-                }
-            }
-
-            ;
-
-            --header-background: {
-                    {
-                    theme.header_background
-                }
-            }
-
-            ;
-
-            --header-shadow: {
-                    {
-                    theme.header_shadow
-                }
-            }
-
-            ;
-
-            --card-background: {
-                    {
-                    theme.card_background
-                }
-            }
-
-            ;
-
-            --card-border: {
-                    {
-                    theme.card_border
-                }
-            }
-
-            ;
-
-            --primary-color: {
-                    {
-                    theme.primary_color
-                }
-            }
-
-            ;
-        }
-    </style>
+    <link rel="manifest" href="/static/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
 </head>
 
-<body>
-    <!-- Header: Logo, title, and time -->
-    <header class="header">
-        <a href="/" class="logo">
-            <img src="/static/images/logo.png" alt="Zuperb Logo">
-        </a>
-        <h1 class="header-title">{% block header_title %}Zuperb{% endblock %}</h1>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
-        <!-- Move the time container before the user-info -->
-        <div class="current-time-container">
-            <span id="current-time"></span>
-        </div>
+    <!-- Header Section -->
+    <header class="relative bg-gray-100 py-3">
+        <div class="flex items-center">
+            <!-- Menu Button -->
+            <button id="menuButton" class="ml-3 p-2 text-gray-600 hover:text-gray-800 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <!-- Zuperb Text -->
+            <a href="/" class="text-xl font-bold hover:text-gray-300">Zuperb</a>
 
-        {% if visitor_name %}
-        <div class="user-info">
-            <img src="/static/images/avatar.png" alt="User Avatar" class="user-avatar">
-            <span class="user-name">{{ visitor_name }}</span>
+            <!-- <h1 class="text-lg font-semibold text-gray-900 ml-2">Zuperb</h1> -->
         </div>
-        {% endif %}
     </header>
 
+
+
+
+
+    <!-- Left Drawer -->
+    <div id="leftMenu"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full relative">
+            <!-- Logo at the Top -->
+            <div class="flex justify-center items-center mt-6">
+                <img src="/static/images/zlogo.png" alt="Zuperb Logo" class="w-24 h-24">
+            </div>
+
+            <!-- Close Button at the Top-Right Corner -->
+            <button id="closeMenuButton"
+                class="absolute top-4 right-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6 text-gray-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Menu Items -->
+            <nav class="mt-8 pt-10 flex-grow">
+                <ul class="flex flex-col text-gray-700 space-y-6 text-center">
+                    <li><a href="/updates" class="hover:text-gray-900 font-medium">What's New?</a></li>
+                    <li><a href="/stats" class="hover:text-gray-900 font-medium">Traffic</a></li>
+                    <li><a href="/server-status" class="hover:text-gray-900 font-medium">Server Status</a></li>
+                    <li><a href="/history" class="hover:text-gray-900 font-medium">History</a></li>
+                    <li><a href="/about" class="hover:text-gray-900 font-medium">About</a></li>
+                </ul>
+            </nav>
+
+            <!-- User Avatar and Name at the Bottom -->
+            <div class="mt-auto mb-8 flex flex-col items-center">
+                <img src="/static/images/avatar.png" alt="User Avatar" class="w-16 h-16 rounded-full mb-2">
+                <span class="text-gray-700 font-medium">
+                    {% if visitor_name %}{{ visitor_name }}{% else %}Guest{% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
-    <main class="content">
+    <main class="flex-grow container mx-auto px-4 py-4">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="/updates">What's New?</a>
-        <a href="/server-status">Status</a>
-        <a href="/stats">Visitors</a>
-        <a href="/history">History</a>
-        <a href="/about">About</a>
-    </footer>
+    <!-- JavaScript for Drawer -->
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const closeMenuButton = document.getElementById('closeMenuButton');
+        const leftMenu = document.getElementById('leftMenu');
 
-    <script src="/static/js/time.js"></script>
+        menuButton.addEventListener('click', () => {
+            leftMenu.classList.remove('-translate-x-full');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            leftMenu.classList.add('-translate-x-full');
+        });
+    </script>
 </body>
 
 </html>

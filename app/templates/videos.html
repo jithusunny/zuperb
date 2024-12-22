@@ -1,20 +1,13 @@
 {% extends "base.html" %}
+
 {% block title %}Videos - Zuperb{% endblock %}
-{% block header_title %}Videos{% endblock %}
 
 {% block content %}
-<div class="recipes-container">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
     {% for video in videos %}
-    <div class="centered-card">
-        <h2>{{ video.title }}</h2>
-        {% if "youtube.com" in video.url or "youtu.be" in video.url %}
-        <iframe width="560" height="315" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
-        {% else %}
-        <video controls width="600">
-            <source src="{{ video.url }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        {% endif %}
+    <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition">
+        <h2 class="text-xl font-bold mb-2">{{ video.title }}</h2>
+        <a href="/videos/{{ video.id }}" class="text-blue-500 hover:underline font-medium">View Video</a>
     </div>
     {% endfor %}
 </div>

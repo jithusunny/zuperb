@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}Quotes - Zuperb{% endblock %}
-{% block header_title %}Quotes{% endblock %}
 
 {% block content %}
-<div class="quote-card">
-    <blockquote>
-        <p>"{{ quote['quote'] }}"</p>
-        <footer>- {{ quote['author'] }}</footer>
-    </blockquote>
+<div class="flex justify-center items-start h-[calc(100vh-4rem)] pt-16">
+    <div class="bg-white shadow-lg rounded-lg max-w-lg mx-auto p-8">
+        <blockquote class="text-center">
+            <p class="text-3xl font-light text-gray-800 leading-relaxed  mb-6">
+                <span class="text-gray-900 font-serif italic">"{{ quote['quote'] }}"</span>
+            </p>
+            <footer class="text-lg font-medium text-gray-600">- {{ quote['author'] }}</footer>
+        </blockquote>
+        <div class="text-center mt-9">
+            <button onclick="location.reload()"
+                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                Show Another Quote
+            </button>
+        </div>
+    </div>
 </div>
 {% endblock %}

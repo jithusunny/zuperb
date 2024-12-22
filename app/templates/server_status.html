@@ -1,52 +1,67 @@
 {% extends "base.html" %}
 
 {% block title %}System Status - Zuperb{% endblock %}
-{% block header_title %}Status{% endblock %}
 
 {% block content %}
-<div class="left-aligned-card">
-    <h2 style="text-align:center;">Current Server Status</h2>
-    <p style="margin-bottom: 20px;">A snapshot of how our server is performing:</p>
+<div class="flex flex-col items-center py-8 bg-gray-100">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Current Server Status</h1>
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-3xl w-full">
+        <p class="text-center text-gray-700 mb-6">A snapshot of how our server is performing:</p>
 
-    <h3 style="margin-bottom:5px; margin-top:20px;">
-        ⏰ Uptime
-        <span title="How long the server has been running since it was started.">&#9432;</span>
-    </h3>
-    <p style="margin-top:0;">
-        About <strong>{{ status.uptime_hours }} {{ 'hour' if status.uptime_hours == 1 else 'hours' }}</strong>
-        (since <strong>{{ status.start_time_formatted }}</strong>)
-    </p>
+        <div class="space-y-4">
+            <!-- Uptime -->
+            <div class="flex items-center justify-between border-b pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⏰</span>
+                    <h3 class="text-lg font-medium text-gray-800">Uptime</h3>
+                </div>
+                <p class="text-gray-700">
+                    About <strong>{{ status.uptime_hours }} {{ 'hour' if status.uptime_hours == 1 else 'hours'
+                        }}</strong>
+                    (since <strong>{{ status.start_time_formatted }}</strong>)
+                </p>
+            </div>
 
-    <h3 style="margin-bottom:5px; margin-top:20px;">
-        🧠 CPU Usage
-        <span title="The server's processing power usage.">&#9432;</span>
-    </h3>
-    <p style="margin-top:0;">
-        <strong>{{ status.cpu_usage }}%</strong> of processing power in use
-    </p>
+            <!-- CPU Usage -->
+            <div class="flex items-center justify-between border-b pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧠</span>
+                    <h3 class="text-lg font-medium text-gray-800">CPU Usage</h3>
+                </div>
+                <p class="text-gray-700"><strong>{{ status.cpu_usage }}%</strong> of processing power in use</p>
+            </div>
 
-    <h3 style="margin-bottom:5px; margin-top:20px;">
-        💭 Memory Usage
-        <span title="The server’s memory usage (like your computer's RAM).">&#9432;</span>
-    </h3>
-    <p style="margin-top:0;">
-        Using <strong>{{ status.memory_used }} MB</strong> of <strong>{{ status.memory_total }} MB</strong>
-    </p>
+            <!-- Memory Usage -->
+            <div class="flex items-center justify-between border-b pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">💭</span>
+                    <h3 class="text-lg font-medium text-gray-800">Memory Usage</h3>
+                </div>
+                <p class="text-gray-700">
+                    Using <strong>{{ status.memory_used }} MB</strong> of <strong>{{ status.memory_total }} MB</strong>
+                </p>
+            </div>
 
-    <h3 style="margin-bottom:5px; margin-top:20px;">
-        📦 Disk Space
-        <span title="Total storage space and how much is currently used.">&#9432;</span>
-    </h3>
-    <p style="margin-top:0;">
-        <strong>{{ status.disk_used }} GB</strong> of <strong>{{ status.disk_total }} GB</strong> in use
-    </p>
+            <!-- Disk Space -->
+            <div class="flex items-center justify-between border-b pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">📦</span>
+                    <h3 class="text-lg font-medium text-gray-800">Disk Space</h3>
+                </div>
+                <p class="text-gray-700">
+                    <strong>{{ status.disk_used }} GB</strong> of <strong>{{ status.disk_total }} GB</strong> in use
+                </p>
+            </div>
 
-    <h3 style="margin-bottom:5px; margin-top:20px;">
-        🧑‍🤝‍🧑 Online Users
-        <span title="The number of currently active users on the website.">&#9432;</span>
-    </h3>
-    <p style="margin-top:0;">
-        <strong>{{ status.online_users }}</strong> user(s) online right now.
-    </p>
+            <!-- Online Users -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧑‍🤝‍🧑</span>
+                    <h3 class="text-lg font-medium text-gray-800">Online Users</h3>
+                </div>
+                <p class="text-gray-700"><strong>{{ status.online_users }}</strong> user(s) online right now</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

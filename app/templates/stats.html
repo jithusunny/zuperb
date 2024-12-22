@@ -1,34 +1,51 @@
 {% extends "base.html" %}
 
 {% block title %}Visitors - Zuperb{% endblock %}
-{% block header_title %}Visitors{% endblock %}
 
 {% block content %}
-<div style="width: 100%; display: flex; justify-content: center; flex-direction: column;">
-    <table>
-        <thead>
-            <tr>
-                <th>Visitor</th>
-                <th>When</th>
-                <th>Page</th>
-                <th>Device</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for log in log_data %}
-            <tr>
-                <td>{{ log.visitor_name }}</td>
-                <td>{{ log.when }}</td>
-                <td>{{ log.page_visited }}</td>
-                <td>{{ log.device }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="flex flex-col items-center py-8 bg-gray-100">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Visitors</h1>
+    <div class="overflow-x-auto w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
+        <table class="table-auto w-full border-collapse border border-gray-200">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2 text-left text-gray-800">Visitor</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left text-gray-800">When</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left text-gray-800">Page</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left text-gray-800">Device</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in log_data %}
+                <tr class="{{ 'bg-white' if loop.index0 % 2 == 0 else 'bg-gray-50' }}">
+                    <td class="border border-gray-300 px-4 py-2 text-gray-700">{{ log.visitor_name }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-gray-700">{{ log.when }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-gray-700">{{ log.page_visited }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-gray-700">{{ log.device }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
     <!-- Pagination Section -->
-    <div class="pagination">
-        <a href="?page={{ previous_page }}" class="{% if not previous_page %}hidden{% endif %}">Previous</a>
-        <a href="?page={{ next_page }}" class="{% if not next_page %}hidden{% endif %}">Next</a>
+    <div class="flex justify-between items-center mt-4 w-full max-w-4xl px-4">
+        {% if previous_page %}
+        <a href="?page={{ previous_page }}"
+            class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg shadow hover:bg-gray-300">
+            Previous
+        </a>
+        {% else %}
+        <span class="px-4 py-2 text-gray-400">Previous</span>
+        {% endif %}
+
+        {% if next_page %}
+        <a href="?page={{ next_page }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg shadow hover:bg-gray-300">
+            Next
+        </a>
+        {% else %}
+        <span class="px-4 py-2 text-gray-400">Next</span>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ video.title }} - Zuperb{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-center min-h-[90vh]">
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-3xl p-6 flex flex-col items-center">
+        <h1 class="text-2xl font-bold mb-6 text-center">{{ video.title }}</h1>
+        <div class="w-full">
+            {% if "youtube.com" in video.url or "youtu.be" in video.url %}
+            <iframe class="rounded-lg w-full" style="aspect-ratio: 16/9;" src="{{ video.url }}" frameborder="0"
+                allowfullscreen>
+            </iframe>
+            {% else %}
+            <video controls class="rounded-lg w-full" style="aspect-ratio: 16/9;">
+                <source src="{{ video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% endif %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="/videos" class="text-blue-500 hover:underline font-medium">Back to Videos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

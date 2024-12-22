@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.name }} - Recipe{% endblock %}
+{% block header_title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<div class="container mx-auto py-8">
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h1 class="text-3xl font-bold mb-4">{{ recipe.name }}</h1>
+        <p class="text-gray-700 mb-6"><span class="font-semibold">Serves:</span> {{ recipe.serves }}</p>
+
+        <h2 class="text-2xl font-bold mb-3">Ingredients</h2>
+        <ul class="list-disc pl-6 text-gray-800">
+            {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2 class="text-2xl font-bold mt-6 mb-3">Instructions</h2>
+        <ol class="list-decimal pl-6 text-gray-800">
+            {% for step in recipe.instructions %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="mt-6">
+        <a href="/recipes" class="text-blue-500 hover:underline">Back to Recipes</a>
+    </div>
+</div>
+{% endblock %}
