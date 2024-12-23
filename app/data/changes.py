@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-23",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Added application memory usage:</strong> to system stats</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/W1WHK5qHwIQ" target="_blank">Language of God</a></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-22",
         "content": """
         <ul class="list-disc list-inside pl-4">

@@ -148,6 +148,7 @@ async def server_status(request: Request):
     uptime_seconds = time.time() - boot_time
     memory = psutil.virtual_memory()
     disk = psutil.disk_usage("/")
+    process = psutil.Process()  # Get the current process
 
     # Perform cleanup to ensure the online user count is accurate
     cleanup_online_users()
@@ -163,7 +164,8 @@ async def server_status(request: Request):
         "memory_total": int(memory.total / (1024**2)),
         "disk_used": f"{disk.used / (1024**3):.1f}",
         "disk_total": f"{disk.total / (1024**3):.1f}",
-        "online_users": len(online_users),  # Include online users count
+        "online_users": len(online_users),
+        "app_memory": f"{process.memory_info().rss / (1024**2):.2f}",  # Memory in MB
     }
 
     return templates.TemplateResponse(

@@ -54,12 +54,23 @@
             </div>
 
             <!-- Online Users -->
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between border-b pb-4">
                 <div class="flex items-center gap-2">
                     <span class="text-xl">🧑‍🤝‍🧑</span>
                     <h3 class="text-lg font-medium text-gray-800">Online Users</h3>
                 </div>
                 <p class="text-gray-700"><strong>{{ status.online_users }}</strong> user(s) online right now</p>
+            </div>
+
+            <!-- App Memory Usage -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">💾</span>
+                    <h3 class="text-lg font-medium text-gray-800">App Memory Usage</h3>
+                </div>
+                <p class="text-gray-700">
+                    <strong>{{ status.app_memory }} MB</strong> used by the app
+                </p>
             </div>
         </div>
     </div>
