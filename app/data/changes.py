@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-24",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Added nginx config:</strong> to block some common malicious requests</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/iuCjCP5BObM" target="_blank">This is the only moment that matters</a></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-23",
         "content": """
         <ul class="list-disc list-inside pl-4">
