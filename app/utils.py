@@ -6,6 +6,8 @@ from datetime import datetime
 from app.models import VisitLog
 from playwright.sync_api import sync_playwright
 from app.data.themes import THEMES
+from app.models import User
+from sqlalchemy.orm import Session
 
 BASE_URL = "http://127.0.0.1:8000"
 CONFIG_PATHS_FOR_SCREENSHOT = [
@@ -95,6 +97,18 @@ def generate_funny_name(ip):
     return (
         f"{ADJECTIVES[hash_value % len(ADJECTIVES)]} {NOUNS[hash_value % len(NOUNS)]}"
     )
+
+
+def get_or_create_user(
+    db: Session, email: str, name: str = None, login_method: str = "google"
+):
+    user = db.query(User).filter(User.email == email).first()
+    if not user:
+        user = User(email=email, name=name, login_method=login_method)
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    return user
 
 
 def parse_device_type(user_agent_str):

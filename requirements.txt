@@ -11,3 +11,6 @@ black
 ruff
 pre-commit
 playwright
+authlib
+httpx
+itsdangerous

@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-25",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Added google login:</strong> just for me now to test</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/IGZbBDruQp8" target="_blank">What is always here?</a></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-24",
         "content": """
         <ul class="list-disc list-inside pl-4">

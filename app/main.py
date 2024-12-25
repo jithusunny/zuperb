@@ -6,6 +6,7 @@ import psutil
 from datetime import datetime
 from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse, PlainTextResponse
+from starlette.middleware.sessions import SessionMiddleware
 
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -22,18 +23,24 @@ from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
 from app.data.videos import VIDEOS
 from app.data.coding_problems import CODING_PROBLEMS
-
-
-# Initialize FastAPI
-app = FastAPI()
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="app/templates")
+from app.auth import router as auth_router
 
 # Initialize database
 initialize_db()
 
 # In-memory data
 ip_to_info_map = {}
+
+# Initialize FastAPI
+app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+templates = Jinja2Templates(directory="app/templates")
+
+SECRET_KEY = os.getenv("SESSION_SECRET_KEY")
+app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
+
+app.include_router(auth_router)
 
 # Middleware
 app.middleware("http")(
