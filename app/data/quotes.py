@@ -1,5 +1,33 @@
 QUOTES = [
     {
+        "quote": "Change the way you look at things and the things you look at change.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "You cannot be lonely if you like the person you're alone with.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "You have everything you need for complete peace and total happiness right now.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "You'll see it when you believe it.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "Your children will see what you're all about by what you live rather than what you say.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "You leave old habits behind by starting out with the thought, 'I release the need for this in my life'.",
+        "author": "Wayne W. Dyer",
+    },
+    {
+        "quote": "The state of your life is nothing more than a reflection of the state of your mind.",
+        "author": "Wayne W. Dyer",
+    },
+    {
         "quote": "He who is unable to live in society, must be either a beast or a god.",
         "author": "Aristotle",
     },

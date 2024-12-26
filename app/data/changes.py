@@ -1,5 +1,14 @@
 CHANGES = [
     {
+        "date": "2024-12-26",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Added quotes</strong> from Wayne Dyer</li>
+            <li><strong>Added Video:</strong> <a href="https://youtu.be/K_VJCF3F5zg" target="_blank">You are a cloud</a></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-25",
         "content": """
         <ul class="list-disc list-inside pl-4">
