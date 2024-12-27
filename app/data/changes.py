@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2024-12-27",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Init Zuperb Projects</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-26",
         "content": """
         <ul class="list-disc list-inside pl-4">

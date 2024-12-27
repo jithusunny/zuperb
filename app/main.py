@@ -22,6 +22,7 @@ from app.data.changes import CHANGES
 from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
 from app.data.videos import VIDEOS
+from app.data.projects import PROJECTS
 from app.data.coding_problems import CODING_PROBLEMS
 from app.auth import router as auth_router
 
@@ -107,6 +108,31 @@ async def stats(request: Request, db=Depends(get_db), page: int = 1):
             "previous_page": logs_data["previous_page"],
             "visitor_name": request.state.visitor_name,
             "theme": request.state.theme,
+        },
+    )
+
+
+@app.get("/projects", response_class=HTMLResponse)
+async def get_projects_list(request: Request):
+    return templates.TemplateResponse(
+        "projects.html",
+        {
+            "request": request,
+            "projects": PROJECTS,
+        },
+    )
+
+
+@app.get("/projects/{project_id}", response_class=HTMLResponse)
+async def get_project_detail(request: Request, project_id: int):
+    project = next(
+        (project for project in PROJECTS if project["id"] == project_id), None
+    )
+    return templates.TemplateResponse(
+        "project.html",
+        {
+            "request": request,
+            "project": project,
         },
     )
 
