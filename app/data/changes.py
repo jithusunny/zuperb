@@ -1,5 +1,16 @@
 CHANGES = [
     {
+        "date": "2024-12-28",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Start having DB migrations:</strong>using Alembic</li>
+            <li><strong>Init notes area</strong></li>
+            <li><strong>Add logout, show user name from Google</strong></li>
+            <li><strong>Removed funny names for guests for now</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-27",
         "content": """
         <ul class="list-disc list-inside pl-4">

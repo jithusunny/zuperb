@@ -29,14 +29,8 @@
             </button>
             <!-- Zuperb Text -->
             <a href="/" class="text-xl font-bold hover:text-gray-300">Zuperb</a>
-
-            <!-- <h1 class="text-lg font-semibold text-gray-900 ml-2">Zuperb</h1> -->
         </div>
     </header>
-
-
-
-
 
     <!-- Left Drawer -->
     <div id="leftMenu"
@@ -67,12 +61,18 @@
                 </ul>
             </nav>
 
-            <!-- User Avatar and Name at the Bottom -->
+            <!-- User Section -->
             <div class="mt-auto mb-8 flex flex-col items-center">
-                <img src="/static/images/avatar.png" alt="User Avatar" class="w-16 h-16 rounded-full mb-2">
+                {% if request.session.user_id %}
+                <!-- Show for logged-in users -->
                 <span class="text-gray-700 font-medium">
-                    {% if visitor_name %}{{ visitor_name }}{% else %}Guest{% endif %}
+                    Hello, {{ request.session.visitor_name }}
                 </span>
+                <a href="/logout" class="px-4 py-2 bg-red-500 text-white rounded-lg mt-4">Log Out</a>
+                {% else %}
+                <!-- Show for unauthenticated users -->
+                <a href="/login/google" class="px-4 py-2 bg-blue-500 text-white rounded-lg mt-4">Login with Google</a>
+                {% endif %}
             </div>
         </div>
     </div>

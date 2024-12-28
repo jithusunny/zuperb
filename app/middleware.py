@@ -1,5 +1,8 @@
 import time
-from app.data.themes import THEMES
+
+# from app.data.themes import THEMES
+
+from app.utils import log_visitor
 
 # Track online users
 online_users = {}
@@ -9,39 +12,38 @@ SESSION_TIMEOUT = 300  # 5 minutes of inactivity considered offline
 def cleanup_online_users():
     """Remove users inactive for more than SESSION_TIMEOUT seconds."""
     current_time = time.time()
-    inactive_ips = [
-        ip
-        for ip, last_active in online_users.items()
+    inactive_users = [
+        user_id
+        for user_id, last_active in online_users.items()
         if current_time - last_active > SESSION_TIMEOUT
     ]
-    for ip in inactive_ips:
-        del online_users[ip]
+    for user_id in inactive_users:
+        del online_users[user_id]
 
 
-def add_user_info_and_logging_middleware(ip_to_info_map, log_visitor, db_session):
+def user_tracking_middleware(get_db):
+    """Middleware to track authenticated users, log visits, and manage online users."""
+
     async def middleware(request, call_next):
-        db = db_session()
+        db = next(get_db())
         try:
-            # Log visitor activity
-            log_visitor(
-                request, db, page=request.url.path, ip_to_info_map=ip_to_info_map
-            )
+            # Call the next middleware and get the response
+            response = await call_next(request)
 
-            # Track online users
-            ip = request.headers.get("X-Forwarded-For", request.client.host)
-            online_users[ip] = time.time()  # Update user activity timestamp
+            # Check if user is authenticated
+            user_id = request.session.get("user_id")
+            if user_id:
+                # Log the visit
+                log_visitor(request, db, user_id=user_id)
 
-            # Cleanup inactive users
-            cleanup_online_users()
+                # Track the user as online
+                online_users[user_id] = time.time()
 
-            # Set visitor info in the request
-            user_info = ip_to_info_map.get(ip, {"name": "Guest", "theme": 0})
-            request.state.visitor_name = user_info["name"]
-            request.state.theme = THEMES[user_info["theme"]]
+                # Cleanup inactive users
+                cleanup_online_users()
+
+            return response
         finally:
             db.close()
-
-        response = await call_next(request)
-        return response
 
     return middleware

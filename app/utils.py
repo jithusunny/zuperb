@@ -99,48 +99,46 @@ def generate_funny_name(ip):
     )
 
 
-def get_or_create_user(
-    db: Session, email: str, name: str = None, login_method: str = "google"
-):
-    user = db.query(User).filter(User.email == email).first()
-    if not user:
-        user = User(email=email, name=name, login_method=login_method)
-        db.add(user)
-        db.commit()
-        db.refresh(user)
-    return user
+def parse_user_agent(user_agent):
+    """Parse the User-Agent string to extract device type, operating system, and browser."""
+    ua = parse(user_agent)
+    device_type = "Mobile" if ua.is_mobile else "Tablet" if ua.is_tablet else "Desktop"
+    operating_system = ua.os.family  # E.g., "Windows", "iOS", "Android"
+    browser = ua.browser.family  # E.g., "Chrome", "Firefox", "Safari"
+    return device_type, operating_system, browser
 
 
-def parse_device_type(user_agent_str):
-    user_agent = parse(user_agent_str)
-    if user_agent.is_mobile:
-        return "Mobile"
-    if user_agent.is_tablet:
-        return "Tablet"
-    return "Desktop"
-
-
-def log_visitor(request, db, page, ip_to_info_map):
+def log_visitor(request, db: Session, user_id: str):
+    """Log visitor activity."""
     ip = request.headers.get("X-Forwarded-For", request.client.host)
     user_agent_str = request.headers.get("User-Agent", "Unknown")
-    referrer = request.headers.get("Referer", "Direct")
-    user_info = ip_to_info_map.get(
-        ip, {"name": generate_funny_name(ip), "theme": generate_random_theme()}
-    )
-    ip_to_info_map[ip] = user_info
+    device_type, operating_system, browser = parse_user_agent(user_agent_str)
 
     visit_log = VisitLog(
-        ip=ip,
-        page=page,
+        user_id=user_id,
+        page=request.url.path,
         url=str(request.url),
-        referrer=referrer,
+        referrer=request.headers.get("Referer", "Direct"),
         user_agent=user_agent_str,
-        device_type=parse_device_type(user_agent_str),
-        visitor_name=user_info["name"],
-        theme_id=user_info["theme"],
+        device_type=device_type,
+        operating_system=operating_system,
+        browser=browser,
+        ip=ip,
     )
     db.add(visit_log)
     db.commit()
+
+
+def get_or_create_user(request, db: Session, email: str, name: str):
+    """Get or create a user based on email."""
+    user = db.query(User).filter(User.email == email).first()
+
+    if not user:
+        user = User(email=email, name=name)
+        db.add(user)
+        db.commit()
+
+    return user
 
 
 def paginate(query, page, per_page):

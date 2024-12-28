@@ -3,21 +3,25 @@ import time
 import arrow
 import random
 import psutil
+from uuid import UUID
 from datetime import datetime
-from fastapi import FastAPI, Request, Depends
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from fastapi import FastAPI, Request, Depends, Form
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+
 from starlette.middleware.sessions import SessionMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from app.models import VisitLog
-from app.db import initialize_db, get_db, SessionLocal
-from app.utils import log_visitor, paginate, take_screenshots
+from app.models import VisitLog, Note
+from sqlalchemy.orm import Session
+from app.utils import paginate, take_screenshots
 from app.middleware import (
     online_users,
     cleanup_online_users,
-    add_user_info_and_logging_middleware,
+    user_tracking_middleware,
 )
+from app.db import get_db
 from app.data.changes import CHANGES
 from app.data.recipes import RECIPES
 from app.data.quotes import QUOTES
@@ -26,27 +30,20 @@ from app.data.projects import PROJECTS
 from app.data.coding_problems import CODING_PROBLEMS
 from app.auth import router as auth_router
 
-# Initialize database
-initialize_db()
-
-# In-memory data
-ip_to_info_map = {}
-
 # Initialize FastAPI
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="app/templates")
+# Middleware
+app.add_middleware(BaseHTTPMiddleware, dispatch=user_tracking_middleware(get_db))
 
 SECRET_KEY = os.getenv("SESSION_SECRET_KEY")
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 
+
 app.include_router(auth_router)
 
-# Middleware
-app.middleware("http")(
-    add_user_info_and_logging_middleware(ip_to_info_map, log_visitor, SessionLocal)
-)
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+templates = Jinja2Templates(directory="app/templates")
 
 
 # Routes
@@ -56,8 +53,6 @@ async def home(request: Request):
         "home.html",
         {
             "request": request,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -69,8 +64,6 @@ async def updates(request: Request):
         {
             "request": request,
             "updates": CHANGES,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -86,9 +79,17 @@ async def stats(request: Request, db=Depends(get_db), page: int = 1):
     # Process logs into a format suitable for the template
     log_data = []
     for log in logs_data["items"]:
-        visitor_name = log.visitor_name
+        user = log.user
+        if user and user.name:  # Check if the user is a real user
+            visitor_name = " ".join(
+                part[0].upper() for part in user.name.split() if part
+            )
+        else:
+            visitor_name = "Guest"
+
         if log.ip == current_user_ip:
             visitor_name = f"{visitor_name} (You)"
+
         log_data.append(
             {
                 "visitor_name": visitor_name,
@@ -106,8 +107,6 @@ async def stats(request: Request, db=Depends(get_db), page: int = 1):
             "log_data": log_data,
             "next_page": logs_data["next_page"],
             "previous_page": logs_data["previous_page"],
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -168,8 +167,6 @@ async def quotes(request: Request):
         {
             "request": request,
             "quote": random_quote,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -206,8 +203,6 @@ async def server_status(request: Request):
         {
             "request": request,
             "status": status,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -218,8 +213,6 @@ async def about(request: Request):
         "about.html",
         {
             "request": request,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -230,8 +223,6 @@ async def history(request: Request):
         "history.html",
         {
             "request": request,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -243,8 +234,6 @@ async def videos(request: Request):
         {
             "request": request,
             "videos": VIDEOS,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -257,8 +246,6 @@ async def video_detail(request: Request, video_id: int):
         {
             "request": request,
             "video": video,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -270,8 +257,6 @@ async def code(request: Request):
         {
             "request": request,
             "coding_problems": CODING_PROBLEMS,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -284,8 +269,6 @@ async def code_detail(request: Request, problem_id: int):
         {
             "request": request,
             "problem": problem,
-            "visitor_name": request.state.visitor_name,
-            "theme": request.state.theme,
         },
     )
 
@@ -305,3 +288,84 @@ def run_screenshots(request: Request):
     take_screenshots()
 
     return {"status": "done"}
+
+
+@app.get("/notes", response_class=HTMLResponse)
+async def list_notes(request: Request, db: Session = Depends(get_db)):
+    user_id = request.session.get("user_id")
+    if not user_id:
+        # Handle unauthenticated user
+        return RedirectResponse("/login/google?next=/notes", status_code=302)
+
+    notes = (
+        db.query(Note)
+        .filter(Note.created_by == user_id)
+        .order_by(Note.updated_at.desc())
+        .all()
+    )
+    return templates.TemplateResponse(
+        "notes.html", {"request": request, "notes": notes}
+    )
+
+
+@app.get("/notes/new", response_class=HTMLResponse)
+async def new_note_page(request: Request):
+    return templates.TemplateResponse(
+        "note_form.html", {"request": request, "note": None}
+    )
+
+
+@app.post("/notes/new")
+async def create_note(
+    request: Request,
+    title: str = Form(""),
+    content: str = Form(...),
+    db: Session = Depends(get_db),
+):
+    user_id = request.session.get("user_id")
+    new_note = Note(title=title, content=content, created_by=user_id)
+    db.add(new_note)
+    db.commit()
+    db.refresh(new_note)
+    return RedirectResponse(f"/notes/{new_note.id}", status_code=302)
+
+
+@app.get("/notes/{note_id}", response_class=HTMLResponse)
+async def view_note(note_id: UUID, request: Request, db: Session = Depends(get_db)):
+    note = db.query(Note).filter(Note.id == note_id).first()
+    if not note:
+        return PlainTextResponse("Note not found", status_code=404)
+
+    return templates.TemplateResponse(
+        "note_preview.html", {"request": request, "note": note}
+    )
+
+
+@app.get("/notes/{note_id}/edit", response_class=HTMLResponse)
+async def edit_note_page(
+    note_id: UUID, request: Request, db: Session = Depends(get_db)
+):
+    note = db.query(Note).filter(Note.id == note_id).first()
+    if not note:
+        return PlainTextResponse("Note not found", status_code=404)
+
+    return templates.TemplateResponse(
+        "note_form.html", {"request": request, "note": note}
+    )
+
+
+@app.post("/notes/{note_id}/edit")
+async def update_note(
+    note_id: UUID,
+    title: str = Form(""),
+    content: str = Form(...),
+    db: Session = Depends(get_db),
+):
+    note = db.query(Note).filter(Note.id == note_id).first()
+    if not note:
+        return PlainTextResponse("Note not found", status_code=404)
+
+    note.title = title
+    note.content = content
+    db.commit()
+    return RedirectResponse(f"/notes/{note.id}", status_code=302)

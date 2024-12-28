@@ -14,3 +14,4 @@ playwright
 authlib
 httpx
 itsdangerous
+alembic
