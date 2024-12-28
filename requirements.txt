@@ -15,3 +15,4 @@ authlib
 httpx
 itsdangerous
 alembic
+python-multipart
