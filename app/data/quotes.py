@@ -1,5 +1,9 @@
 QUOTES = [
     {
+        "quote": "It's not the years in your life that count, it's the life in your years.",
+        "author": "People",
+    },
+    {
         "quote": "Change the way you look at things and the things you look at change.",
         "author": "Wayne W. Dyer",
     },

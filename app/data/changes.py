@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2024-12-29",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Fixed google login error form mobile</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-28",
         "content": """
         <ul class="list-disc list-inside pl-4">
