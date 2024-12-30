@@ -3,6 +3,8 @@ import time
 import arrow
 import random
 import psutil
+import bleach
+import markdown
 from uuid import UUID
 from datetime import datetime
 from fastapi import FastAPI, Request, Depends, Form
@@ -330,14 +332,66 @@ async def create_note(
     return RedirectResponse(f"/notes/{new_note.id}", status_code=302)
 
 
+# Define allowed tags
+ALLOWED_TAGS = bleach.sanitizer.ALLOWED_TAGS.union(
+    {
+        "p",
+        "pre",
+        "span",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "img",
+        "a",
+        "ul",
+        "ol",
+        "li",
+        "strong",
+        "em",
+        "code",
+        "blockquote",
+    }
+)
+
+# Define allowed attributes as a dictionary
+ALLOWED_ATTRIBUTES = bleach.sanitizer.ALLOWED_ATTRIBUTES.copy()
+ALLOWED_ATTRIBUTES.update(
+    {
+        "a": ["href", "title", "target", "rel"],
+        "img": ["src", "alt", "title"],
+        "span": ["class"],
+    }
+)
+
+# Optionally, define allowed protocols
+ALLOWED_PROTOCOLS = ["http", "https", "mailto"]
+
+
 @app.get("/notes/{note_id}", response_class=HTMLResponse)
 async def view_note(note_id: UUID, request: Request, db: Session = Depends(get_db)):
     note = db.query(Note).filter(Note.id == note_id).first()
     if not note:
         return PlainTextResponse("Note not found", status_code=404)
 
+    # Convert Markdown to HTML
+    md = markdown.Markdown(extensions=["fenced_code", "codehilite"])
+    note_html = md.convert(note.content)
+
+    # Sanitize HTML
+    note_html = bleach.clean(
+        note_html,
+        tags=ALLOWED_TAGS,
+        attributes=ALLOWED_ATTRIBUTES,
+        protocols=ALLOWED_PROTOCOLS,
+        strip=True,
+    )
+
     return templates.TemplateResponse(
-        "note_preview.html", {"request": request, "note": note}
+        "note_preview.html",
+        {"request": request, "note": note, "note_content_html": note_html},
     )
 
 

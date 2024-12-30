@@ -8,10 +8,9 @@
         <h1 class="text-2xl font-bold">{{ note.title or "Untitled" }}</h1>
         <a href="/notes/{{ note.id }}/edit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Edit</a>
     </div>
-    <div class="bg-white p-6 shadow-md rounded-lg">
-        <pre class="whitespace-pre-wrap">{{ note.content }}</pre>
+    <div class="bg-white p-6 shadow-md rounded-lg prose">
+        {{ note_content_html | safe }}
     </div>
-    <!-- Add Back to Notes Link -->
     <div class="mt-6">
         <a href="/notes" class="text-blue-500 hover:underline">Back to Notes</a>
     </div>

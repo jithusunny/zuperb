@@ -2,8 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Prose Styles */
+@layer components {
+    .prose h1 {
+        @apply text-3xl font-bold my-6;
+    }
 
-.text-4xl {
-    font-family: 'Arial Black', sans-serif;
-    letter-spacing: 1px;
+    .prose h2 {
+        @apply text-2xl font-semibold my-5;
+    }
+
+    .prose h3 {
+        @apply text-xl font-medium my-4;
+    }
+
+    .prose p {
+        @apply mb-4;
+    }
+
+    .prose a {
+        @apply text-blue-500 underline;
+    }
+
+    /* Unordered Lists */
+    .prose ul {
+        @apply mb-4 pl-5 list-disc list-inside;
+    }
+
+    /* Ordered Lists */
+    .prose ol {
+        @apply mb-4 pl-5 list-decimal list-inside;
+    }
+
+    .prose li {
+        @apply mb-2;
+    }
+
+    .prose blockquote {
+        @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4;
+    }
+
+    .prose code {
+        @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+    }
+
+    .prose pre {
+        @apply bg-gray-100 p-4 rounded-md overflow-x-auto mb-4;
+    }
+
+    .prose img {
+        @apply max-w-full h-auto rounded;
+    }
+
+    /* Optional: Tables */
+    .prose table {
+        @apply w-full text-left;
+    }
+
+    .prose th {
+        @apply border-b-2 border-gray-300 py-2;
+    }
+
+    .prose td {
+        @apply border-b border-gray-200 py-2;
+    }
 }

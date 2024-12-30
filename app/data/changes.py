@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2024-12-30",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Format markdown for notes</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-29",
         "content": """
         <ul class="list-disc list-inside pl-4">
