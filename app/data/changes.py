@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2024-12-31",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Added a quote</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-30",
         "content": """
         <ul class="list-disc list-inside pl-4">

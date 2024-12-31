@@ -1,5 +1,9 @@
 QUOTES = [
     {
+        "quote": "Do you have the patience to wait until your mud settles and the water is clear?",
+        "author": "Lao Tzu",
+    },
+    {
         "quote": "It's not the years in your life that count, it's the life in your years.",
         "author": "People",
     },
