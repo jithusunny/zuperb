@@ -1,5 +1,13 @@
 CHANGES = [
     {
+        "date": "2025-01-01",
+        "content": """
+        <ul class="list-disc list-inside pl-4">
+            <li><strong>Started creating Zuperb Projects in Bolt</strong></li>
+        </ul>
+        """,
+    },
+    {
         "date": "2024-12-31",
         "content": """
         <ul class="list-disc list-inside pl-4">
